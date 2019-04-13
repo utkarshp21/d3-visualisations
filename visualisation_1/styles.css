@@ -15,3 +15,23 @@ svg{
 .mainView{
     display: flex;
 }
+
+
+.bar--recieved {
+  fill: steelblue;
+}
+
+.bar--donated {
+  fill: darkorange;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
