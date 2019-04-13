@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+    .bar--positive {
+        fill: steelblue;
+    }
+
+    .bar--negative {
+        fill: darkorange;
+    }
+
+    .axis text {
+        font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+</style>
+
+<body>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script>
+       
+
+        function nestData(next_by) {
+
+                return d3.nest().key(function (d) {
+                    return d[next_by]
+                })
+                    .rollup(function (leaves) {
+                        return d3.sum(leaves, function (d) {
+                            return d.commitment_amount_usd_constant;
+                        });
+                    }).entries(aidData);
+        }
+
+        function processData() {
+                let data_donor = nestData("donor").map(function (d) {
+                    return { Country: d.key, ["Donated"]: d.values };
+                });
+
+                let data_recipient = nestData("recipient").map(function (d) {
+                    return { Country: d.key, ["Recieved"]: d.values };
+                });
+
+                data_recipient.forEach(function (article) {
+                    let result = data_donor.filter(function (donar) {
+                        return donar['Country'] === article['Country'];
+                    });
+                    article.Donated = (result[0] !== undefined) ? result[0].Donated : 0;
+                });
+                
+
+                return data_recipient;
+        }
+        
+        function drawChart(){
+        
+            var data = processData();
+            // var data = [{ name: "A", value: 20 }, { name: "B", value: 30 }, { name: "C", value: -20 }, { name: "D", value: -30 }, { name: "E", value: 20 }]
+            var margin = { top: 20, right: 30, bottom: 40, left: 30 },
+                width = 960 - margin.left - margin.right,
+                height = 500 - margin.top - margin.bottom;
+
+            var x = d3.scale.linear()
+                .range([0, width]);
+
+            var y = d3.scale.ordinal()
+                .rangeRoundBands([0, height], 0.1);
+
+            var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+                .tickSize(0)
+                .tickPadding(6);
+
+            var svg = d3.select("body").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+            x.domain(d3.extent(data, function (d) {return d.Donated})).nice();
+            y.domain(data.map(function (d) { return d.Country; }));
+
+            svg.selectAll(".bar")
+                .data(data)
+                .enter().append("rect")
+                .attr("class", function (d) { return "bar bar--" + (d.Donated < 4000000 ? "negative" : "positive"); })
+                .attr("x", function (d) { return x(Math.min(0, d.Donated)); })
+                .attr("y", function (d) { return y(d.Country); })
+                .attr("width", function (d) { return Math.abs(x(d.Donated) - x(0)); })
+                .attr("height", y.rangeBand());
+
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+
+            svg.append("g")
+                .attr("class", "y axis")
+                .attr("transform", "translate(" + x(0) + ",0)")
+                .call(yAxis);
+
+
+            function type(d) {
+                debugger;
+                d.value = +d.value;
+                return d;
+            }
+        }
+        var aidData
+        d3.csv("../data/aiddata.csv", function (data) {
+                aidData = data;
+                drawChart()
+        })
+
+        // .append("rect")
+        // .attr("class", function (d) { return "bar bar--recieved";})
+        // .attr("x", function (d) { return xScaleLeft(d.Recieved); })
+        // .attr("y", function (d) { return y(d.Country); })
+        // .attr("width", function (d) { return Math.abs(xScaleLeft(d.Recieved) - xScaleLeft(0)); })
+        // .attr("height", y.bandwidth());
+    
+    </script>

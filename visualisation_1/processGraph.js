@@ -39,34 +39,54 @@ function processData() {
     });
 
     let max_value = Math.max.apply(Math, aidData.map(function (d) { return d.commitment_amount_usd_constant; })); 
-    let min_value = Math.min.apply(Math, aidData.map(function (d) { return d.commitment_amount_usd_constant; })) 
+    // let min_value = Math.min.apply(Math, aidData.map(function (d) { return d.commitment_amount_usd_constant; })) 
 
-    return [data_recipient, max_value, min_value];
+    return [data_recipient, max_value, 0];
 }
 
 
 function drawChart() {
     let [data,max_value,min_value] = processData();
+
+    let [data1, max_value2, min_value3] = processData();
     
-    let margin = { top: 20, right: 30, bottom: 40, left: 30 },
-        width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+    var margin = { top: 20, right: 70, bottom: 30, left: 110 },
+        width = 1500 - margin.left - margin.right,
+        height = 1000 - margin.top - margin.bottom;
 
     let x = d3.scaleLinear()
         .range([0, width])
         .domain([min_value, max_value]);
+    
+    var xScaleLeft = d3.scaleLinear()
+        .domain([min_value, max_value])
+        .range([(width / 2) , 0]);
 
+    var xScaleRight = d3.scaleLinear()
+        .domain([min_value, max_value])
+        .range([(width / 2), width]);
+ 
     let y = d3.scaleBand()
         .rangeRound([0, height])
         .padding(0.1);
 
-    let xAxis = d3.axisBottom()
-        .scale(x)
+    // let xAxis = d3.axisBottom()
+    //     .scale(x)
         // .orient("bottom");
+    
+    let xAxisLeft = d3.axisBottom()
+        .scale(xScaleLeft)
+    
+    let xAxisRight = d3.axisBottom()
+        .scale(xScaleRight)
 
     let yAxis = d3.axisLeft()
         .scale(y)
-        // .orient("left")
+        .tickSize(0)
+        .tickPadding(6);
+    
+    let yAxisRight = d3.axisLeft()
+        .scale(y)
         .tickSize(0)
         .tickPadding(6);
 
@@ -75,28 +95,41 @@ function drawChart() {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    // x.domain(d3.extent(data, function (d) {debugger; return d.Donated; })).nice();
     
     y.domain(data.map(function (d) { return d.Country; }));
 
+    // svg.selectAll("bar")
+    //     .data(data)
+    //     .enter()// Take data item one by one and perfrom some actions 
+    //     .append("rect")
+    //     .attr("class", function (d) { return "bar bar--donated"; })
+    //     .attr("x", function (d) { return xScaleRight(d.Donated); })
+    //     .attr("y", function (d) { return y(d.Country); }) 
+    //     .attr("width", function (d) { return Math.abs(xScaleRight(d.Donated) - xScaleRight(0)); })
+    //     .attr("height", y.bandwidth())
+    
     svg.selectAll(".bar")
         .data(data)
         .enter()
-        
         .append("rect")
         .attr("class", function (d) { return "bar bar--donated"; })
-        .attr("x", function (d) { return x(Math.min(0, d.Donated)); })
+        .attr("x", function (d) { return width / 2; })
         .attr("y", function (d) { return y(d.Country); })
-        .attr("width", function (d) { return Math.abs(x(d.Donated) - x(0)); })
+        .attr("width", function (d) { return Math.abs(xScaleRight(d.Donated) - xScaleRight(0)); })
         .attr("height", y.bandwidth())
-        
+
+    svg.selectAll("bar")
+        .data(data1)
+        .enter()
         .append("rect")
         .attr("class", function (d) { return "bar bar--recieved";})
-        .attr("x", function (d) { return x(Math.min(0, d.Recieved)); })
+        .attr("x", function (d) { return xScaleLeft(d.Recieved); })
         .attr("y", function (d) { return y(d.Country); })
-        .attr("width", function (d) { return Math.abs(x(d.Recieved) - x(0)); })
+        .attr("width", function (d) { return Math.abs(xScaleLeft(d.Recieved) - xScaleLeft(0)); })
         .attr("height", y.bandwidth());
+
+    
+
     
     //Add one more append
     //Fix domains 
@@ -104,12 +137,23 @@ function drawChart() {
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+        .call(xAxisLeft);
+    
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxisRight);
 
     svg.append("g")
         .attr("class", "y axis")
         .attr("transform", "translate(" + x(0) + ",0)")
         .call(yAxis);
+    
+    svg.append("g")
+        .attr("class", "y axis")
+        .attr("transform", "translate(" + width + ",0)")
+        .call(yAxis);
+
 
     // function type(d) {
     //     d.value = +d.value;
