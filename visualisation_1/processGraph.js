@@ -18,7 +18,8 @@ function nestData(next_by){
         return d3.sum(leaves, function (d) {
             return d.commitment_amount_usd_constant;
         });
-    }).entries(aidData);
+    })
+    .entries(aidData);
 }
 
 function processData() { 
@@ -36,6 +37,9 @@ function processData() {
         return { Country: d.key, ["Recieved"]: total_recieved };
     });
 
+
+    data_recipient.sort(function (a, b) { return b.Recieved - a.Recieved });
+
     data_recipient.forEach(function (article) {
         let result = data_donor.filter(function (donar) {
             return donar['Country'] === article['Country'];
@@ -50,7 +54,7 @@ function processData() {
 function drawChart() {
     let [data,max_value,min_value] = processData();
     
-    var margin = { top: 20, right: 70, bottom: 30, left: 110 },
+    var margin = { top: 20, right: 110, bottom: 20, left: 110 },
         width = 1200 - margin.left - margin.right,
         height = 1000 - margin.top - margin.bottom;
 
@@ -85,7 +89,7 @@ function drawChart() {
         .tickSize(0)
         .tickPadding(6);
     
-    let yAxisRight = d3.axisLeft()
+    let yAxisRight = d3.axisRight()
         .scale(y)
         .tickSize(0)
         .tickPadding(6);
@@ -118,6 +122,10 @@ function drawChart() {
         .attr("width", function (d) { return Math.abs(xScaleLeft(d.Recieved) - xScaleLeft(0)); })
         .attr("height", y.bandwidth());
 
+    svg.append("text").attr("x", width / 4).attr("y", 5).attr("class", "title").text("Recieved");
+    
+    svg.append("text").attr("x", width - width/4).attr("y", 5).attr("class", "title").text("Donated");
+
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
@@ -136,13 +144,14 @@ function drawChart() {
     svg.append("g")
         .attr("class", "y axis")
         .attr("transform", "translate(" + width + ",0)")
-        .call(yAxis);
+        .call(yAxisRight);
+    
 
 
-    function type(d) {
-        d.value = +d.value;
-        return d;
-    }
+    // function type(d) {
+    //     d.value = +d.value;
+    //     return d;
+    // }
 }
 
 loadData().then(drawChart);

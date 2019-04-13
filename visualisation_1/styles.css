@@ -35,3 +35,7 @@ svg{
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
+.title{
+  font-size: 20px;
+}
