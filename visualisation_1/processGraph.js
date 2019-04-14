@@ -122,9 +122,9 @@ function drawChart() {
         .attr("width", function (d) { return Math.abs(xScaleLeft(d.Recieved) - xScaleLeft(0)); })
         .attr("height", y.bandwidth());
 
-    svg.append("text").attr("x", width / 4).attr("y", 5).attr("class", "title").text("Recieved");
+    svg.append("text").attr("x", width / 4).attr("y", 5).attr("class", "title").text("Recieved(USD Billions)");
     
-    svg.append("text").attr("x", width - width/4).attr("y", 5).attr("class", "title").text("Donated");
+    svg.append("text").attr("x", width - width / 4).attr("y", 5).attr("class", "title").text("Donated(USD Billions)");
 
     svg.append("g")
         .attr("class", "x axis")
