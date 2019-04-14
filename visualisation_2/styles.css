@@ -39,3 +39,13 @@ svg{
 .title{
   font-size: 15px;
 }
+
+div.tooltip { 
+  position: absolute;     
+  text-align: center;              
+  padding: 4px;       
+  font: 14px;    
+  background: AliceBlue; 
+  border: 0px;    
+  border-radius: 5px;     
+}
