@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="../resources/d3.js"></script>
+    <!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
+</head>
+
+<body>
+    <script src="./processGraph.js"></script>
+    <h1>AidData</h1>
+    
+    <div id="toggleButton">
+        <label class="switch">
+            <input id="myCheck" onclick="validate()" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <p id="pi">Pie Chart</p>
+        <p id="circle">Circle Chart</p>
+    </div>
+    <div class="mainView">
+        <div id="svgContainer">
+            <h2>Visualisation 2</h2>
+            <svg id="Map"></svg>
+            <div>
+                <ul class="legend">
+                    <li><span class="donated"></span> Amount Donated($ Billions)</li>
+                    <br></br>
+                    <li><span class="received"></span> Amount Received($ Billions)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
