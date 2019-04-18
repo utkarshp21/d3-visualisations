@@ -1,0 +1,50 @@
+body {
+    font-family: Helvetica, Arial, sans-serif
+}
+
+h1 {
+    background-color: #2a5599;
+    color: #ffff;
+    padding: 5px;
+}
+
+svg{
+    border: 1px solid black;
+}
+
+.mainView{
+    display: flex;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.title{
+  font-size: 15px;
+}
+
+.legend1 {
+    list-style: none;
+    position: relative;
+    top: -38em;
+    left: 37em;
+
+}
+
+.legend1 li { float: left; font-size: 20px; }
+
+.map-container{
+   display:inline-block;
+}
+
+.svgMap{
+   display:inline-block;
+}
