@@ -4,6 +4,8 @@ let store = {}
 function loadData() {
     return Promise.all([
         d3.csv("../data/aiddata.csv"),
+        d3.csv("./country-capitals.csv"),
+        d3.json("../assi/countries.geo.json")
     ]).then(datasets => {
         store.aidData = datasets[0];
         store.country_capital = datasets[1];
@@ -101,23 +103,76 @@ function processData() {
     return data;
 }
 
-function getLineChartConfig() {
-    let margin = { top: 20, right: 110, bottom: 20, left: 110 },
-    width = 1200 - margin.left - margin.right,
-    height = 1000 - margin.top - margin.bottom;
-    
-    let container = d3.select("#Line"); 
-    container.attr("width", width + margin.left + margin.right)
-    container.attr("height", height + margin.top + margin.bottom)
-    
+function getMapConfig(index) {
+    let width = 600;
+    let height = 400;
+    let container = d3.select("#Map"+index); //TODO: select the svg with id Map
+    container.attr("width", width)
+    container.attr("height", height)//TODO: set the width and height of the conatiner to be equal the width and height variables.
     return { width, height, container }
 }
 
+function getMapProjection(config) {
+    let { width, height } = config;
+    let projection = d3.geoMercator();//TODO: Create a projection of type Mercator.
+    projection.scale(130)
+        .translate([width / 2, height / 2 + 20])
 
+    store.mapProjection = projection;
+    return projection;
+}
+
+function drawBaseMap(mapInfo, medianRecieved, maxRecieved,index) {
+    let config = getMapConfig(index);
+    let projection = getMapProjection(config)
+    let container = config.container
+    let cScale = d3.scaleLinear().domain([0, medianRecieved, maxRecieved ]).range(["white","orange", "red"])
+    let countries = mapInfo.features;
+
+    let path = d3.geoPath().projection(projection); //TODO: create a geoPath generator and set its projection to be the projection passed as parameter.
+    
+    container.selectAll("path").data(countries)
+        .enter().append("path")
+        .attr("d", d => path(d))//TODO: use the path generator to draw each country )
+        .attr("stroke", "#ccc")
+        .attr("fill", d => d.properties.recieved?cScale(d.properties.recieved):"White")
+}
+
+function drawChoropleth(purpose_data,index) {
+    
+    let config = getMapConfig();
+    let projection = getMapProjection(config)
+    let  path  = d3.geoPath().projection(projection);
+    let mapInfo = JSON.parse(JSON.stringify(store.geoJSON));
+    let dataIndex = {}
+
+    for (let c of purpose_data.countries){
+        let country = c.Country;
+        dataIndex[country] = c.Recieved;
+    }   
+    
+    mapInfo.features = mapInfo.features.map(d=>{
+        let country = d.properties.name;
+        if(dataIndex[country]){
+            let recieved = dataIndex[country];
+            d.properties.recieved = recieved;
+            return d
+        }
+
+        return d
+    })
+
+    medianRecieved = d3.median(mapInfo.features,d=>d.properties.recieved);
+    maxRecieved = d3.max(mapInfo.features, d => d.properties.recieved);
+    drawBaseMap(mapInfo, medianRecieved, maxRecieved, index);
+    
+}
 
 function drawChart() {
     let data = processData();
-    debugger;
+    data.forEach(function (item,index) {
+        drawChoropleth(item,index)
+    })
 }
 
 loadData().then(drawChart);

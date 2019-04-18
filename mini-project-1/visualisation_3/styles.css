@@ -11,3 +11,20 @@ h1 {
 svg{
     border: 1px solid grey;
 }
+
+.legend {
+    list-style: none;
+    position: relative;
+    top: -4em;
+    left: 19em;
+}
+
+.legend li { float: left;     font-size: 20px; }
+
+.map-container{
+   display:inline-block;
+}
+
+.svgMap{
+   display:inline-block;
+}
