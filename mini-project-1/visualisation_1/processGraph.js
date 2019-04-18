@@ -1,4 +1,3 @@
-// let aidData
 
 function loadData() {
     return Promise.all([
@@ -40,14 +39,22 @@ function processData() {
 
     data_recipient.sort(function (a, b) { return b.Recieved - a.Recieved });
 
+    let final_data = [];
+
     data_recipient.forEach(function (article) {
         let result = data_donor.filter(function (donar) {
             return donar['Country'] === article['Country'];
         });
         article.Donated = (result[0] !== undefined) ? result[0].Donated : 0;
+        
+        if (!(article.Donated == 0 && article.Recieved==0)){
+            final_data.push(article);
+        }
+        
     });
 
-    return [data_recipient, max, 0];
+
+    return [final_data, max, 0];
 }
 
 
@@ -73,10 +80,6 @@ function drawChart() {
     let y = d3.scaleBand()
         .rangeRound([0, height])
         .padding(0.1);
-
-    // let xAxis = d3.axisBottom()
-    //     .scale(x)
-        // .orient("bottom");
     
     let xAxisLeft = d3.axisBottom()
         .scale(xScaleLeft)
@@ -146,12 +149,6 @@ function drawChart() {
         .attr("transform", "translate(" + width + ",0)")
         .call(yAxisRight);
     
-
-
-    // function type(d) {
-    //     d.value = +d.value;
-    //     return d;
-    // }
 }
 
 loadData().then(drawChart);
