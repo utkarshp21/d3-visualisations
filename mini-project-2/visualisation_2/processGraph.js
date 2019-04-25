@@ -12,118 +12,115 @@ function loadData() {
     })
 }
 
-function processAmountType(groupType, type) {
+function nestData(next_by) {
 
-    function groupBy(objectArray, property) {
+    return d3.nest().key(function (d) {
+        return d[next_by]
+    })
+    .rollup(function (leaves) {
+        return d3.sum(leaves, function (d) {
+            return d.commitment_amount_usd_constant;
+        });
+    })
+    .entries(store.aidData);
+}
+
+
+function processData() {
+
+    let disbursements = nestData("coalesced_purpose_name").map(function (d) {
+        let total_donated = d.value;
+        return { purpose: d.key, ["amount"]: total_donated };
+    });
+
+    //Top 10 purpose of disbursements
+    disbursements = disbursements.sort(function (a, b) { return b.amount - a.amount }).slice(0, 10);
+    
+    disbursements = disbursements.map(element => {
+        return element.purpose;
+    });
+
+    //Get all disbursements of top 10 type of disbursements
+    function groupByPurpose(objectArray, property) {
         return objectArray.reduce(function (acc, obj) {
-            var key = obj[property];
-            if (!acc[key]) {
-                acc[key] = [];
+            let key = obj[property];
+            
+            if (disbursements.includes(key)){
+                if (!acc[key]) {
+                    acc[key] = [];
+                }
+                acc[key].push(obj);
+                return acc;
             }
-            acc[key].push(obj);
             return acc;
+        
         }, {});
     }
 
-    //all items grouped by countries
-    let countryGrouped = groupBy(store.aidData, groupType);
+    let groupedPurpose = groupByPurpose(store.aidData, 'coalesced_purpose_name');
 
-    function sumByCommitmentAmount(objectArray, property) {
-        return objectArray.reduce(function (acc, obj) {
-            acc += +obj.commitment_amount_usd_constant;
-            return acc;
-        }, 0);
-    }
-    
-    let finalData = {}; 
-
-    for (var country in countryGrouped) {
-       
-        let yearGrouped = groupBy(countryGrouped[country], "year");
-       
-        let countryData = {};
-
-        for(year in yearGrouped){
-            let donated = sumByCommitmentAmount(yearGrouped[year]);
-            countryData[year] = donated
-        }
-
-        finalData[country] = countryData;
-    }
-    
-    return finalData
-}
-
-function processData(){
-
-    let donatedCountries = processAmountType("donor","donated");
-    let recievedCountries = processAmountType("recipient","recieved");
-    
-    let processedData = [];
-    let countries = []
-
+    //Group with year for each top 10 purpose
     let max = 0;
     let min = Infinity;
-
-    function findMinMax(totalAmount){
-        max = Math.max(totalAmount, max);
-        min = Math.min(totalAmount, min)
-    }
-
-    function processYear(recieved,donated,country) {
+    
+    function groupByYear(objectArray, property) {
+        return objectArray.reduce(function (acc, obj) {
+            let key = obj[property];
+            if (!acc[key]) {
+                acc[key] = 0;
+            }
+            acc[key] += +obj.commitment_amount_usd_constant/1000000000;
+            max = Math.max(acc[key],max);
+            min = Math.min(acc[key], min);
+            return acc;
         
-        for(year in recieved){
-            let yearData = {};
-            
-            if(year in donated){
-                yearData = { "donated": donated[year], "recieved": recieved[year], country: country, year: +year }
-            }
-            else{
-                yearData = { "donated": 0, "recieved": recieved[year], country: country, year: +year }
-            }
-            
-            findMinMax(yearData.recieved+yearData.donated);
-        
-            processedData.push(yearData);
-            
-        }
-        for(year in donated){
-            if(!(year in recieved)){
-                let yearData = { "donated": donated[year], "recieved": 0, country: country, year: +year }
-                processedData.push(yearData) 
-                findMinMax(yearData.recieved+yearData.donated);
-            }
-        }
+        }, {});
     }
 
-    for(country in donatedCountries){
-        if (country in recievedCountries){
-            processYear(recievedCountries[country], donatedCountries[country], country);
-        }else{
-            processYear({}, donatedCountries[country], country);
-        }
-
-        countries.push(country);
+    let final_data = [];
+    
+    for(let i=0;i<disbursements.length;i++){
+        let groupedYear = groupByYear(groupedPurpose[disbursements[i]], 'year');
+        final_data.push({ name: disbursements[i], values: groupedYear})
     }
 
-    for (country in recievedCountries){
-        if (!(country in donatedCountries)){
-            processYear(recievedCountries[country], {}, country);
-            countries.push(country);
+    //Convert key value pair to array of objects 
+    final_data = final_data.map(function (item) {
+
+        let years = Object.keys(item.values).map(data => { return { date: data, price: item.values[data] } })
+
+        return { name: item.name, values: years}
+    })
+
+    let graphOneData = [];
+    let graphTwoData = [];
+    let maxGraph1=0, maxGraph2=0, minGraph1=Infinity, minGraph2=Infinity;
+    // d3.max(graphTwoData[0].values, function (d) { return +d.price; })
+    for (let j = 0; j < final_data.length; j++) {
+        if (final_data[j].name == "Air transport" || final_data[j].name == "RESCHEDULING AND REFINANCING" || final_data[j].name == "Import support (capital goods)" || final_data[j].name == "Rail transport" || final_data[j].name ==  "Industrial development") {
+            graphTwoData.push(final_data[j]);
+            maxGraph2 = Math.max(maxGraph2,d3.max(final_data[j].values, function (d) { return +d.price; }))
+            minGraph2 = Math.min(minGraph2,d3.min(final_data[j].values, function (d) { return +d.price; }))
+        } else {
+            graphOneData.push(final_data[j]);
+            maxGraph1 = Math.max(maxGraph1,d3.max(final_data[j].values, function (d) { return +d.price; }))
+            minGraph1 = Math.min(minGraph1, d3.min(final_data[j].values, function (d) { return +d.price; }))
 
         }
     }
 
 
-    return {processedData,countries,max,min};
+    drawLineChart(graphOneData, maxGraph1, minGraph1, "#Line1");
+    drawLineChart(graphTwoData, maxGraph2, minGraph2, "#Line2");
+    
 }
 
-function getChartConfig() {
-    let margin = { top: 10, right:150, bottom: 50, left: 90 },
-    width = 2100 - margin.left - margin.right,
-    height = 1300 - margin.top - margin.bottom;
+function getLineChartConfig(svgId) {
+    let margin = { top: 10, right:10, bottom: 50, left: 70 },
+    width = 1400 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
     
-    let container = d3.select("#Matrix")
+    let container = d3.select(svgId)
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -132,158 +129,95 @@ function getChartConfig() {
     return { width, height, container,margin }
 }
 
-function getMatrixChartScale(config, data){
+function drawLineChart(final_data,max,min,svgId){ 
 
-    let {countries,min,max} = data;
+    let getConfig = getLineChartConfig(svgId);
+    let container = getConfig.container;
+    let width = getConfig.width;
+    let height = getConfig.height;
+    let margin = getConfig.margin;
 
-    let {height,width} = config;
-        
-    let yScale = d3.scalePoint()
-        .range([0, height])
-        .domain(countries.map(d =>d))
-        .padding(1)
+    let yScale = d3.scaleLinear()
+    .range([height,0])
+    .domain([min,max]);
 
-    let parseDate = d3.timeParse("%Y");
-
-    let xScale = d3.scaleTime()
-        .domain([parseDate(1972), parseDate(2013)])
-        .range([0,width])
-        
+    let yAxis = d3.axisLeft(yScale)
     
-    let rScale = d3.scaleLinear()
-        .domain([min,max])
-        .range([10, 40])
-  
-    let piColorScale = d3.scaleOrdinal([1, 0]).range(["#4682b4", "#ff8c00"]);
-
-    return { yScale, xScale, rScale, piColorScale}
-    
-}
-
-function drawMatrixChartAxis(config,scales) {
-    
-    let { yScale, xScale } = scales;
-
-    let { container, height } = config;
-
-    let yAxis = d3.axisLeft(yScale);
-
     container.append("g")
         .attr("class", "y axis")
         .call(yAxis);
 
-    let xAxis = d3.axisBottom(xScale);
+    // text label for the y axis
+    container.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left+20)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Disbursements, Billion Dollars"); 
+    
+
+    var parseDate = d3.timeParse("%Y");
+
+
+    let xScale = d3.scaleTime()
+        .domain([parseDate(1973), parseDate(2013)])
+        .range([0,width-290])
+    
+    let xAxis = d3.axisBottom(xScale)
+
+    // text label for the x axis
+    container.append("text")
+        .attr("transform",
+            "translate(" + ((width-305) / 2) + " ," +
+            (height + margin.top + 25) + ")")
+        .style("text-anchor", "middle")
+        .text("Year");
 
     container.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .style("font-size", "20px")
         .call(xAxis);
-}   
 
-function drawMatrixChartPies(config, scales, data){ 
-    let { yScale, xScale, rScale, piColorScale} = scales;
-    let { container } = config;
-    let {processedData} = data
+    var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    let parseDate = d3.timeParse("%Y");
-
-    let arc = d3.arc()
-        .innerRadius(0)
-        .outerRadius((d) => rScale(d.data.donated+d.data.recieved));
-        //.outerRadius(15);
-
-    let points = container.selectAll("g")
-        .data(processedData)
-        .enter()
-        .append("g")
-        .attr("transform", function (d) { return "translate(" + [xScale(parseDate(d.year)), yScale(d.country)] + ")" })
-        .attr("class", "pies")
-
-
-    let pie = d3.pie()
-        .value(function (d) { return d.piValue });
-
-    let pies = points.selectAll(".pies")
-        .data(function (d) {
-            let newObj = {
-                piValue: d.recieved
-            }
-            let newObj2 = {
-                piValue: d.donated
-            }
-            let piData = [{ ...d, ...newObj }, { ...d, ...newObj2 }]
-            if (d.country == "Saudi Arabia"){
-                debugger;
-            }
-            return pie(piData) ;
-        })
-        .enter()
-        .append('g')
-
-    pies.append("path")
-        .attr('d', arc)
-        .style("opacity", 0.8)
-        .attr("fill", (d, i) => piColorScale(i) )
-   
-}
-
-function drawGrid(config, scales) {
-    let {container, height} = config;
-    let {xScale} = scales;
-
-    var years = [];
-
-    for (let i = 1972; i <= 2013; i++) {
-        years.push(i);
+    let valueline = d3.line()
+        .x(d => xScale(parseDate(d.date)))
+        .y(d => yScale(d.price))
+        .defined(d => !!d.price)
+    
+    for (let j = 0; j < final_data.length ; j++){
+        let line_item = final_data[j];
+        
+        container.append("path")
+            .datum(line_item)
+            .attr("d", (d) => { return valueline(d.values) })
+            .attr("class", "line")
+            .style("stroke", color(j))
     }
 
-    let parseDate = d3.timeParse("%Y");
-
-    years.forEach(year => {
-        container
-            .append("line")
-            .style("stroke", "#e4e4e4")
-            .style("stroke-dasharray", ("3, 3"))
-            .attr("y1", height)
-            .attr("y2", 0)
-            .attr("x1", xScale(parseDate(year)))
-            .attr("x2", xScale(parseDate(year)))
-    })
-    
-}
-
-function drawLegend(config) {
-    let {container,width,margin} = config;
-
-    let legend_data = [{ name: "Recieved", color: "#4682b4" }, { name: "Donated", color: "#ff8c00"}]
-    
-    let lineLegend = container.selectAll(".lineLegend").data(legend_data)
+    let lineLegend = container.selectAll(".lineLegend").data(final_data)
         .enter().append("g")
         .attr("class", "lineLegend")
         .attr("transform", function (d, i) {
-            return "translate(" + (width+30 ) + "," + (i * 30) + ")";
+            return "translate(" + (width - 305) + "," + (i * 20) + ")";
         });
 
     lineLegend.append("text").text(function (d) { return d.name; })
-        .style("font-size", "20px")
-        .attr("transform", "translate(25,16)"); //align texts with boxes
+        .attr("transform", "translate(15,9)"); //align texts with boxes
 
     lineLegend.append("rect")
-        .attr("fill", (d, i) => d.color)
-        .attr("width", 20).attr("height", 20);
+        .attr("fill", function (d, i) { return color(i); })
+        .attr("width", 10).attr("height", 10);
+
+   
 }
 
 function drawChart() {
-
     let data = processData(); 
-    let config = getChartConfig();
-    let scales = getMatrixChartScale(config, data);
-    drawGrid(config, scales);
-    drawMatrixChartAxis(config,scales);
-    drawMatrixChartPies(config,scales,data);
-    drawLegend(config)
 }
+
+
 
 loadData().then(drawChart);
 
