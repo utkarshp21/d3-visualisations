@@ -108,8 +108,8 @@ function processData() {
         }
     }
 
-    drawLineChart(graphOneData, maxGraph, minGraph, "#Line1");
-    drawLineChart(graphTwoData, maxGraph, minGraph, "#Line2");
+    drawLineChart(graphOneData, graphTwoData, maxGraph, minGraph, "#Line1");
+    drawLineChart(graphTwoData, graphOneData,maxGraph, minGraph, "#Line2");
     
 }
 
@@ -127,7 +127,7 @@ function getLineChartConfig(svgId) {
     return { width, height, container,margin }
 }
 
-function drawLineChart(final_data,max,min,svgId){ 
+function drawLineChart(mainData,backgroundData,max,min,svgId){ 
 
     let getConfig = getLineChartConfig(svgId);
     let container = getConfig.container;
@@ -184,18 +184,29 @@ function drawLineChart(final_data,max,min,svgId){
         .y(d => yScale(d.price))
         .defined(d => !!d.price)
     
-    for (let j = 0; j < final_data.length ; j++){
-        let line_item = final_data[j];
+    
+    for (let j = 0; j < backgroundData.length; j++) {
+        let backgrounditem = backgroundData[j];
+
+        container.append("path")
+            .datum(backgrounditem)
+            .attr("d", (d) => { return valueline(d.values) })
+            .attr("class", "line")
+            .style("stroke", "#d6d6d6")
+            .style("opacity", 0.4)
+    }
+    
+    for (let j = 0; j < mainData.length ; j++){
+        let mainItem = mainData[j];
         
         container.append("path")
-            .datum(line_item)
+            .datum(mainItem)
             .attr("d", (d) => { return valueline(d.values) })
             .attr("class", "line")
             .style("stroke", color(j))
     }
 
-    debugger;
-    let lineLegend = container.selectAll(".lineLegend").data(final_data)
+    let lineLegend = container.selectAll(".lineLegend").data(mainData)
         .enter().append("g")
         .attr("class", "lineLegend")
         .attr("transform", function (d, i) {
