@@ -80,9 +80,9 @@ function processData() {
 }
 
 function getChartConfig() {
-    let margin = { top: 10, right:10, bottom: 50, left: 70 },
-    width = 1000 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
+    let margin = { top: 10, right:50, bottom: 50, left: 110 },
+    width = 1500 - margin.left - margin.right,
+    height = 1200 - margin.top - margin.bottom;
     
     let container = d3.select("#Matrix")
         .attr("width", width + margin.left + margin.right)
@@ -111,7 +111,7 @@ function getMatrixChartScale(config, data){
     
     let rScale = d3.scaleLinear()
         .domain([min, max])
-        .range([2, 20])
+        .range([7, 40])
   
     let cScale = d3.scaleLinear().domain([min, median, max]).range(["white", "orange", "red"])
     
@@ -122,18 +122,37 @@ function getMatrixChartScale(config, data){
 function drawMatrixChartAxis(config,scales) {
     let {yScale,xScale} = scales;
     
-    let {container,height}= config; 
+    let {container,height, width, margin}= config; 
     
     let yAxis = d3.axisLeft(yScale);
     container.append("g")
         .attr("class", "y axis")
         .call(yAxis);
+    
+    container.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left + 20)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("font-size", "20px")
+        .text("Top 75% countries that recieved from US"); 
+
 
     let xAxis = d3.axisBottom(xScale)
     container.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
+    
+        // text label for the x axis
+    container.append("text")
+        .attr("transform",
+            "translate(" + ((width) / 2) + " ," +
+            (height + margin.top + 30) + ")")
+        .style("text-anchor", "middle")
+        .style("font-size", "20px")
+        .text("Year");
 
 }   
 
@@ -156,11 +175,9 @@ function drawMatrixChartCicles(config, scales, data){
             .attr("cy", (d) => yScale(country))
             .attr("r", (d) => rScale(d.value))
             .attr("fill", (d) => cScale(d.value))
-
+            .style("opacity", 0.8)
     }
-
 }
-
 
 function drawGrid(config, scales, data) {
     let {container, height} = config;
