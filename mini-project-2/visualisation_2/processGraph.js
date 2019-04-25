@@ -94,24 +94,22 @@ function processData() {
 
     let graphOneData = [];
     let graphTwoData = [];
-    let maxGraph1=0, maxGraph2=0, minGraph1=Infinity, minGraph2=Infinity;
+    let maxGraph=0, minGraph=Infinity;
+    
     // d3.max(graphTwoData[0].values, function (d) { return +d.price; })
     for (let j = 0; j < final_data.length; j++) {
         if (final_data[j].name == "Air transport" || final_data[j].name == "RESCHEDULING AND REFINANCING" || final_data[j].name == "Import support (capital goods)" || final_data[j].name == "Rail transport" || final_data[j].name ==  "Industrial development") {
             graphTwoData.push(final_data[j]);
-            maxGraph2 = Math.max(maxGraph2,d3.max(final_data[j].values, function (d) { return +d.price; }))
-            minGraph2 = Math.min(minGraph2,d3.min(final_data[j].values, function (d) { return +d.price; }))
+            maxGraph = Math.max(maxGraph,d3.max(final_data[j].values, function (d) { return +d.price; }))
+            minGraph = Math.min(minGraph,d3.min(final_data[j].values, function (d) { return +d.price; }))
         } else {
             graphOneData.push(final_data[j]);
-            maxGraph1 = Math.max(maxGraph1,d3.max(final_data[j].values, function (d) { return +d.price; }))
-            minGraph1 = Math.min(minGraph1, d3.min(final_data[j].values, function (d) { return +d.price; }))
 
         }
     }
 
-
-    drawLineChart(graphOneData, maxGraph1, minGraph1, "#Line1");
-    drawLineChart(graphTwoData, maxGraph2, minGraph2, "#Line2");
+    drawLineChart(graphOneData, maxGraph, minGraph, "#Line1");
+    drawLineChart(graphTwoData, maxGraph, minGraph, "#Line2");
     
 }
 
@@ -137,7 +135,8 @@ function drawLineChart(final_data,max,min,svgId){
     let height = getConfig.height;
     let margin = getConfig.margin;
 
-    let yScale = d3.scaleLinear()
+    let yScale = d3.scalePow()
+    .exponent(0.4)
     .range([height,0])
     .domain([min,max]);
 
@@ -147,7 +146,6 @@ function drawLineChart(final_data,max,min,svgId){
         .attr("class", "y axis")
         .call(yAxis);
 
-    // text label for the y axis
     container.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - margin.left+20)
@@ -196,6 +194,7 @@ function drawLineChart(final_data,max,min,svgId){
             .style("stroke", color(j))
     }
 
+    debugger;
     let lineLegend = container.selectAll(".lineLegend").data(final_data)
         .enter().append("g")
         .attr("class", "lineLegend")
