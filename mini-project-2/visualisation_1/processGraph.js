@@ -119,7 +119,7 @@ function processData(){
 }
 
 function getChartConfig() {
-    let margin = { top: 10, right:150, bottom: 50, left: 90 },
+    let margin = { top: 10, right:150, bottom: 50, left: 140 },
     width = 2100 - margin.left - margin.right,
     height = 1300 - margin.top - margin.bottom;
     
@@ -164,13 +164,22 @@ function drawMatrixChartAxis(config,scales) {
     
     let { yScale, xScale } = scales;
 
-    let { container, height } = config;
+    let { container, height,width, margin } = config;
 
     let yAxis = d3.axisLeft(yScale);
 
     container.append("g")
         .attr("class", "y axis")
         .call(yAxis);
+
+    container.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left + 20)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("font-size", "20px")
+        .text("Countries"); 
 
     let xAxis = d3.axisBottom(xScale);
 
@@ -179,6 +188,15 @@ function drawMatrixChartAxis(config,scales) {
         .attr("transform", "translate(0," + height + ")")
         .style("font-size", "20px")
         .call(xAxis);
+    
+    // text label for the x axis
+    container.append("text")
+        .attr("transform",
+            "translate(" + ((width) / 2) + " ," +
+            (height + margin.top + 30) + ")")
+        .style("text-anchor", "middle")
+        .style("font-size", "20px")
+        .text("Year");
 }   
 
 function drawMatrixChartPies(config, scales, data){ 
