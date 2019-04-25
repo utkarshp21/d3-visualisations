@@ -32,7 +32,7 @@ function processData() {
     function groupByRecipient(objectArray,property) {
         return objectArray.reduce(function (acc, obj) {
             if (obj.donor == "United States" ){
-                var key = obj[property];
+                let key = obj[property];
                 if (!acc[key]) {
                     acc[key] = [];
                 }
@@ -59,7 +59,7 @@ function processData() {
         }, 0);
     }
 
-    for (var key in countryGrouped) {
+    for (let key in countryGrouped) {
         let yearGrouped = sumByCommitmentAmount(countryGrouped[key]);
         countries.push({ country: key, total_recieved: yearGrouped});
     }
@@ -68,7 +68,7 @@ function processData() {
                 .slice(0, (countries.length / 4) * 2);
 
     
-    for (var key in countryGrouped) {
+    for (let key in countryGrouped) {
        
         if (countries.some((x => x.country == key))){
             countryGrouped[key] = nestData("year", countryGrouped[key]);
@@ -103,7 +103,7 @@ function getMatrixChartScale(config, data){
         .domain(countries.map(d => d.country))
         .padding(1)
 
-    var parseDate = d3.timeParse("%Y");
+    let parseDate = d3.timeParse("%Y");
 
     let xScale = d3.scaleTime()
         .domain([parseDate(1972), parseDate(2013)])
@@ -166,7 +166,7 @@ function drawGrid(config, scales, data) {
     let {container, height} = config;
     let {xScale} = scales;
 
-    var years = [];
+    let years = [];
     for (let i = 1972; i <= 2013; i++) {
         years.push(i);
     }
@@ -189,9 +189,8 @@ function drawChart() {
     let data = processData(); 
     let config = getChartConfig();
     let scales = getMatrixChartScale(config, data)
-    drawMatrixChartAxis(config,scales)
     drawGrid(config, scales, data)
-
+    drawMatrixChartAxis(config,scales)
     drawMatrixChartCicles(config,scales,data)
 }
 
