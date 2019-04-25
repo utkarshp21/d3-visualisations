@@ -119,9 +119,9 @@ function processData(){
 }
 
 function getChartConfig() {
-    let margin = { top: 10, right:10, bottom: 50, left: 90 },
-    width = 1600 - margin.left - margin.right,
-    height = 1200 - margin.top - margin.bottom;
+    let margin = { top: 10, right:150, bottom: 50, left: 90 },
+    width = 2100 - margin.left - margin.right,
+    height = 1300 - margin.top - margin.bottom;
     
     let container = d3.select("#Matrix")
         .attr("width", width + margin.left + margin.right)
@@ -152,7 +152,7 @@ function getMatrixChartScale(config, data){
     
     let rScale = d3.scaleLinear()
         .domain([min,max])
-        .range([8, 30])
+        .range([10, 40])
   
     let piColorScale = d3.scaleOrdinal([1, 0]).range(["#4682b4", "#ff8c00"]);
 
@@ -177,6 +177,7 @@ function drawMatrixChartAxis(config,scales) {
     container.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
+        .style("font-size", "20px")
         .call(xAxis);
 }   
 
@@ -252,14 +253,36 @@ function drawGrid(config, scales) {
     
 }
 
+function drawLegend(config) {
+    let {container,width,margin} = config;
+
+    let legend_data = [{ name: "Recieved", color: "#4682b4" }, { name: "Donated", color: "#ff8c00"}]
+    
+    let lineLegend = container.selectAll(".lineLegend").data(legend_data)
+        .enter().append("g")
+        .attr("class", "lineLegend")
+        .attr("transform", function (d, i) {
+            return "translate(" + (width+30 ) + "," + (i * 30) + ")";
+        });
+
+    lineLegend.append("text").text(function (d) { return d.name; })
+        .style("font-size", "20px")
+        .attr("transform", "translate(25,16)"); //align texts with boxes
+
+    lineLegend.append("rect")
+        .attr("fill", (d, i) => d.color)
+        .attr("width", 20).attr("height", 20);
+}
+
 function drawChart() {
 
     let data = processData(); 
     let config = getChartConfig();
-    let scales = getMatrixChartScale(config, data)
-    drawGrid(config, scales)
-    drawMatrixChartAxis(config,scales)
-    drawMatrixChartPies(config,scales,data)
+    let scales = getMatrixChartScale(config, data);
+    drawGrid(config, scales);
+    drawMatrixChartAxis(config,scales);
+    drawMatrixChartPies(config,scales,data);
+    drawLegend(config)
 }
 
 loadData().then(drawChart);
