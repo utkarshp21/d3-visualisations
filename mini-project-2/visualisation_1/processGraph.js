@@ -62,10 +62,11 @@ function processData(){
     let processedData = [];
     let countries = []
 
+
     let max = 0;
     let min = Infinity;
 
-    function findMinMax(totalAmount){
+    function findMinMax(totalAmount) {
         max = Math.max(totalAmount, max);
         min = Math.min(totalAmount, min)
     }
@@ -81,9 +82,10 @@ function processData(){
             else{
                 yearData = { "donated": 0, "recieved": recieved[year], country: country, year: +year }
             }
-            
-            findMinMax(yearData.recieved+yearData.donated);
-        
+                        
+            findMinMax(yearData.recieved + yearData.donated);
+
+
             processedData.push(yearData);
             
         }
@@ -91,7 +93,8 @@ function processData(){
             if(!(year in recieved)){
                 let yearData = { "donated": donated[year], "recieved": 0, country: country, year: +year }
                 processedData.push(yearData) 
-                findMinMax(yearData.recieved+yearData.donated);
+                findMinMax(yearData.recieved + yearData.donated);
+
             }
         }
     }
@@ -114,8 +117,7 @@ function processData(){
         }
     }
 
-
-    return {processedData,countries,max,min};
+    return { processedData, countries, max, min};
 }
 
 function getChartConfig() {
@@ -150,9 +152,9 @@ function getMatrixChartScale(config, data){
         .range([0,width])
         
     
-    let rScale = d3.scaleLinear()
+    let rScale = d3.scalePow().exponent(0.5)
         .domain([min,max])
-        .range([10, 40])
+        .range([8, 40])
   
     let piColorScale = d3.scaleOrdinal([1, 0]).range(["#4682b4", "#ff8c00"]);
 
@@ -222,6 +224,7 @@ function drawMatrixChartPies(config, scales, data){
     let pie = d3.pie()
         .value(function (d) { return d.piValue });
 
+    
     let pies = points.selectAll(".pies")
         .data(function (d) {
             let newObj = {
@@ -231,9 +234,7 @@ function drawMatrixChartPies(config, scales, data){
                 piValue: d.donated
             }
             let piData = [{ ...d, ...newObj }, { ...d, ...newObj2 }]
-            if (d.country == "Saudi Arabia"){
-                debugger;
-            }
+            // console.log(d.country);
             return pie(piData) ;
         })
         .enter()
@@ -271,16 +272,19 @@ function drawGrid(config, scales) {
     
 }
 
-function drawLegend(config) {
-    let {container,width,margin} = config;
+function drawLegend(config, data, scales) {
+    let {container,width,height,margin} = config;
+    let { max, min} = data;
+    let { rScale } = scales;
 
+    // Rectangle legend
     let legend_data = [{ name: "Recieved", color: "#4682b4" }, { name: "Donated", color: "#ff8c00"}]
     
     let lineLegend = container.selectAll(".lineLegend").data(legend_data)
         .enter().append("g")
         .attr("class", "lineLegend")
         .attr("transform", function (d, i) {
-            return "translate(" + (width+30 ) + "," + (i * 30) + ")";
+            return "translate(" + (width + margin.right / 4) + "," + (i * 30) + ")";
         });
 
     lineLegend.append("text").text(function (d) { return d.name; })
@@ -290,6 +294,26 @@ function drawLegend(config) {
     lineLegend.append("rect")
         .attr("fill", (d, i) => d.color)
         .attr("width", 20).attr("height", 20);
+
+    // Bubble legend
+    let bubbleData = [min + max / 5, min+max/2, max] 
+
+    let bubbleLegend = container.selectAll(".bubbleLegend")
+        .data(bubbleData)
+        .enter().append("g")
+        .attr("class", "bubbleLegend")
+        .attr("transform", "translate(" + (width + margin.right/2) + "," + (height*0.12) + ")")
+    
+    bubbleLegend.append("circle")
+        .attr("cy", function (d) { return -rScale(d); })
+        .attr("r", rScale);
+    
+    bubbleLegend.append("text")
+        .attr("y", function (d) { return -2 * rScale(d); })
+        .attr("dy", "1.3em")
+        .text(function (d) { return( d/1000000000).toFixed(2)+" B" })
+        .attr("font-size", "10px")
+
 }
 
 function drawChart() {
@@ -300,7 +324,7 @@ function drawChart() {
     drawGrid(config, scales);
     drawMatrixChartAxis(config,scales);
     drawMatrixChartPies(config,scales,data);
-    drawLegend(config)
+    drawLegend(config, data, scales);
 }
 
 loadData().then(drawChart);
