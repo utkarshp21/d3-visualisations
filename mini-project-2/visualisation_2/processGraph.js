@@ -25,7 +25,6 @@ function nestData(next_by) {
     .entries(store.aidData);
 }
 
-
 function processData() {
 
     let disbursements = nestData("coalesced_purpose_name").map(function (d) {
@@ -115,8 +114,8 @@ function processData() {
 
 function getLineChartConfig(svgId) {
     let margin = { top: 10, right:10, bottom: 50, left: 70 },
-    width = 1400 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+    width = 1700 - margin.left - margin.right,
+    height = 650 - margin.top - margin.bottom;
     
     let container = d3.select(svgId)
         .attr("width", width + margin.left + margin.right)
@@ -144,6 +143,7 @@ function drawLineChart(mainData,backgroundData,max,min,svgId){
     
     container.append("g")
         .attr("class", "y axis")
+        .style("font-size", "20px")
         .call(yAxis);
 
     container.append("text")
@@ -152,6 +152,7 @@ function drawLineChart(mainData,backgroundData,max,min,svgId){
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
+        .style("font-size", "20px")
         .text("Disbursements, Billion Dollars"); 
     
 
@@ -170,11 +171,13 @@ function drawLineChart(mainData,backgroundData,max,min,svgId){
             "translate(" + ((width-305) / 2) + " ," +
             (height + margin.top + 25) + ")")
         .style("text-anchor", "middle")
+        .style("font-size", "20px")
         .text("Year");
 
     container.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
+        .style("font-size", "20px")
         .call(xAxis);
 
     var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -210,17 +213,17 @@ function drawLineChart(mainData,backgroundData,max,min,svgId){
         .enter().append("g")
         .attr("class", "lineLegend")
         .attr("transform", function (d, i) {
-            return "translate(" + (width - 305) + "," + (i * 20) + ")";
+            return "translate(" + (width - 380) + "," + (i * 25) + ")";
         });
 
     lineLegend.append("text").text(function (d) { return d.name; })
+        .style("font-size", "20px")
         .attr("transform", "translate(15,9)"); //align texts with boxes
 
     lineLegend.append("rect")
-        .attr("fill", function (d, i) { return color(i); })
+        .attr("fill", function (d, i) {return color(i); })
         .attr("width", 10).attr("height", 10);
 
-   
 }
 
 function drawChart() {
