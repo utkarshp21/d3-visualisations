@@ -80,7 +80,7 @@ function processData() {
 }
 
 function getChartConfig() {
-    let margin = { top: 10, right:50, bottom: 50, left: 110 },
+    let margin = { top: 10, right:200, bottom: 50, left: 110 },
     width = 1500 - margin.left - margin.right,
     height = 1200 - margin.top - margin.bottom;
     
@@ -109,13 +109,16 @@ function getMatrixChartScale(config, data){
         .domain([parseDate(1972), parseDate(2013)])
         .range([0,width])
     
-    let rScale = d3.scaleLinear()
+
+    let rScale = d3.scalePow().exponent(0.5)
         .domain([min, max])
-        .range([7, 40])
+        .range([8, 50])
   
-    let cScale = d3.scaleLinear().domain([min, median, max]).range(["white", "orange", "red"])
+    let cScale = d3.scalePow().exponent(0.8).domain([min, max]).range([ "#C3BBF4", "#06265C"]).interpolate(d3.interpolateHcl)
     
-    return { yScale, xScale, rScale, cScale}
+    let legendScale = d3.scalePow().exponent(0.8).domain([min, max]).range([300, 0])
+
+    return { yScale, xScale, rScale, cScale, legendScale}
     
 }
 
@@ -202,13 +205,82 @@ function drawGrid(config, scales, data) {
     
 }
 
+function drawLegend(config, data, scales) {
+    let { container, width, height, margin } = config;
+    let { max, min } = data;
+    let { rScale, legendScale } = scales;
+
+    // Bubble legend
+    let bubbleData = [min + max / 20, min + max / 5, min + max / 2, max]
+
+    let bubbleLegend = container.selectAll(".bubbleLegend")
+        .data(bubbleData)
+        .enter().append("g")
+        .attr("class", "bubbleLegend")
+        .attr("transform", "translate(" + (width + margin.right / 2) + "," + (height * 0.12) + ")")
+
+    bubbleLegend.append("circle")
+        .attr("cy", function (d) { return -rScale(d); })
+        .attr("r", rScale);
+
+    bubbleLegend.append("text")
+        .attr("y", function (d) { return -2 * rScale(d); })
+        .attr("dy", "1.3em")
+        .text(function (d) { return (d / 1000000000).toFixed(2) + " B" })
+        .attr("font-size", "10px")
+    
+    let w = 140, h = 400;
+
+    // let key = container.append("svg").attr("width", w).attr("height", h);
+    
+    let key = container.append("g").attr("transform", `translate(${width + margin.right / 4},170)`)
+
+    let legend = key.append("defs")
+                .append("svg:linearGradient")
+                .attr("id", "gradient")
+                .attr("x1", "100%")
+                .attr("y1", "0%")
+                .attr("x2", "100%")
+                .attr("y2", "100%")
+        .attr("spreadMethod", "pad")
+
+    legend.append("stop").attr("offset", "0%")
+            .attr("stop-color", "#06265C")
+            .attr("stop-opacity", 1)
+
+    legend.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#C3BBF4")
+            .attr("stop-opacity", 1);
+
+    key.append("rect")
+        .attr("width", w - 100)
+        .attr("height", h - 100)
+        .style("fill", "url(#gradient)").
+        attr("transform", `translate(0,10)`);
+
+    let yAxis = d3.axisRight(legendScale)
+
+    key.append("g").attr("class", "y axis")
+        .attr("transform", "translate(41,10)")
+        .call(yAxis)
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", 30)
+        .attr("dx", ".71em")
+        .style("text-anchor", "end")
+        .text("axis title");
+}
+
+
 function drawChart() {
     let data = processData(); 
     let config = getChartConfig();
-    let scales = getMatrixChartScale(config, data)
-    drawGrid(config, scales, data)
-    drawMatrixChartAxis(config,scales)
-    drawMatrixChartCicles(config,scales,data)
+    let scales = getMatrixChartScale(config, data);
+    drawGrid(config, scales, data);
+    drawMatrixChartAxis(config,scales);
+    drawMatrixChartCicles(config,scales,data);
+    drawLegend(config, data, scales);
 }
 
 

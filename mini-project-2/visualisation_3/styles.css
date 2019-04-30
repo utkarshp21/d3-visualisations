@@ -26,4 +26,17 @@ svg{
 .legend rect {
   fill:white;
   stroke:black;
-  opacity:0.8;}
+  opacity:0.8;
+}
+
+
+.bubbleLegend circle {
+  fill: none;
+  stroke: #ccc;
+}
+
+.bubbleLegend text {
+  fill: #777;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
