@@ -80,9 +80,9 @@ function processData() {
 }
 
 function getChartConfig() {
-    let margin = { top: 10, right:200, bottom: 50, left: 110 },
-    width = 1500 - margin.left - margin.right,
-    height = 1200 - margin.top - margin.bottom;
+    let margin = { top: 10, right:200, bottom: 50, left: 140 },
+    width = 1700 - margin.left - margin.right,
+    height = 1300 - margin.top - margin.bottom;
     
     let container = d3.select("#Matrix")
         .attr("width", width + margin.left + margin.right)
@@ -114,7 +114,7 @@ function getMatrixChartScale(config, data){
         .domain([min, max])
         .range([8, 50])
   
-    let cScale = d3.scalePow().exponent(0.8).domain([min, max]).range([ "#C3BBF4", "#06265C"]).interpolate(d3.interpolateHcl)
+    let cScale = d3.scaleLinear().domain([min, max]).range([ "#C3BBF4", "#06265C"]).interpolate(d3.interpolateHcl)
     
     let legendScale = d3.scalePow().exponent(0.8).domain([min, max]).range([300, 0])
 
@@ -130,6 +130,7 @@ function drawMatrixChartAxis(config,scales) {
     let yAxis = d3.axisLeft(yScale);
     container.append("g")
         .attr("class", "y axis")
+        .style("font-size", "15px")
         .call(yAxis);
     
     container.append("text")
@@ -138,13 +139,14 @@ function drawMatrixChartAxis(config,scales) {
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
-        .style("font-size", "20px")
+        .style("font-size", "18px")
         .text("Top 75% countries that recieved from US"); 
 
 
     let xAxis = d3.axisBottom(xScale)
     container.append("g")
         .attr("class", "x axis")
+        .style("font-size", "15px")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
     
@@ -187,9 +189,11 @@ function drawGrid(config, scales, data) {
     let {xScale} = scales;
 
     let years = [];
+    
     for (let i = 1972; i <= 2013; i++) {
         years.push(i);
     }
+
     let parseDate = d3.timeParse("%Y");
 
     years.forEach(year => {
@@ -242,7 +246,7 @@ function drawLegend(config, data, scales) {
                 .attr("y1", "0%")
                 .attr("x2", "100%")
                 .attr("y2", "100%")
-        .attr("spreadMethod", "pad")
+                .attr("spreadMethod", "pad")
 
     legend.append("stop").attr("offset", "0%")
             .attr("stop-color", "#06265C")
@@ -256,11 +260,11 @@ function drawLegend(config, data, scales) {
     key.append("rect")
         .attr("width", w - 100)
         .attr("height", h - 100)
-        .style("fill", "url(#gradient)").
-        attr("transform", `translate(0,10)`);
+        .style("fill", "url(#gradient)")
+        .attr("transform", `translate(0,10)`);
 
     let yAxis = d3.axisRight(legendScale)
-
+   
     key.append("g").attr("class", "y axis")
         .attr("transform", "translate(41,10)")
         .call(yAxis)
@@ -272,7 +276,6 @@ function drawLegend(config, data, scales) {
         .text("axis title");
 }
 
-
 function drawChart() {
     let data = processData(); 
     let config = getChartConfig();
@@ -282,8 +285,6 @@ function drawChart() {
     drawMatrixChartCicles(config,scales,data);
     drawLegend(config, data, scales);
 }
-
-
 
 loadData().then(drawChart);
 

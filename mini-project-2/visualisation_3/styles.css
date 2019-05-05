@@ -16,11 +16,9 @@ svg{
    display:inline-block;
 }
 
-
 .line {
   stroke-width: 3;
   fill: none;
-  /* stroke:blue; */
 }
 
 .legend rect {
@@ -29,14 +27,13 @@ svg{
   opacity:0.8;
 }
 
-
 .bubbleLegend circle {
   fill: none;
-  stroke: #ccc;
+  stroke: #b0b0b0;
 }
 
 .bubbleLegend text {
-  fill: #777;
+  fill: #000000;
   font: 10px sans-serif;
   text-anchor: middle;
 }

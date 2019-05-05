@@ -97,7 +97,7 @@ function processData() {
     
     // d3.max(graphTwoData[0].values, function (d) { return +d.price; })
     for (let j = 0; j < final_data.length; j++) {
-        if (final_data[j].name == "Air transport" || final_data[j].name == "RESCHEDULING AND REFINANCING" || final_data[j].name == "Import support (capital goods)" || final_data[j].name == "Rail transport" || final_data[j].name ==  "Industrial development") {
+        if (final_data[j].name == "Air transport" || final_data[j].name == "RESCHEDULING AND REFINANCING" || final_data[j].name == "Power generation/non-renewable sources" || final_data[j].name == "Rail transport" || final_data[j].name ==  "Industrial development") {
             graphTwoData.push(final_data[j]);
             maxGraph = Math.max(maxGraph,d3.max(final_data[j].values, function (d) { return +d.price; }))
             minGraph = Math.min(minGraph,d3.min(final_data[j].values, function (d) { return +d.price; }))
@@ -165,6 +165,10 @@ function drawLineChart(mainData,backgroundData,max,min,svgId){
     
     let xAxis = d3.axisBottom(xScale)
 
+    let widthScale = d3.scaleLinear()
+        .domain([8.551354228, 39.81248032899999])
+        .range([5, 150])
+
     // text label for the x axis
     container.append("text")
         .attr("transform",
@@ -213,16 +217,32 @@ function drawLineChart(mainData,backgroundData,max,min,svgId){
         .enter().append("g")
         .attr("class", "lineLegend")
         .attr("transform", function (d, i) {
-            return "translate(" + (width - 380) + "," + (i * 25) + ")";
+            return "translate(" + (width - 425) + "," + (i * 25) + ")";
         });
 
     lineLegend.append("text").text(function (d) { return d.name; })
         .style("font-size", "20px")
-        .attr("transform", "translate(15,9)"); //align texts with boxes
+        .attr("transform", "translate(50,12)"); //align texts with boxes
 
     lineLegend.append("rect")
-        .attr("fill", function (d, i) {return color(i); })
-        .attr("width", 10).attr("height", 10);
+        .attr("fill", function (d, i) { return color(i); })
+        .attr("x", function (d) {
+            let totalPrice = 0;
+            d["values"].forEach(element => {
+                totalPrice += element.price
+            });
+            console.log(widthScale(totalPrice));
+            return 45 - widthScale(totalPrice) ;  
+        })
+        .attr("width", function (d, i) {
+            let totalPrice = 0;
+            d["values"].forEach(element => {
+                totalPrice+=element.price
+            });
+            console.log(widthScale(totalPrice));
+            return widthScale(totalPrice); 
+        })
+        .attr("height", 10);
 
 }
 

@@ -60,8 +60,9 @@ function processData(){
     let recievedCountries = processAmountType("recipient","recieved");
     
     let processedData = [];
-    let countries = []
+    let countries = [];
 
+    let countryDict = {};
 
     let max = 0;
     let min = Infinity;
@@ -84,15 +85,27 @@ function processData(){
             }
                         
             findMinMax(yearData.recieved + yearData.donated);
-
-
+            
+            if(countryDict[yearData.country] != undefined){
+                countryDict[yearData.country] += yearData.recieved + yearData.donated;
+            }else{
+                countryDict[yearData.country] = yearData.recieved + yearData.donated;
+            }
+            
             processedData.push(yearData);
             
         }
         for(year in donated){
             if(!(year in recieved)){
                 let yearData = { "donated": donated[year], "recieved": 0, country: country, year: +year }
-                processedData.push(yearData) 
+                processedData.push(yearData)
+                
+                if (countryDict[yearData.country] != undefined) {
+                    countryDict[yearData.country] += yearData.recieved + yearData.donated;
+                } else {
+                    countryDict[yearData.country] = yearData.recieved + yearData.donated;
+                }
+ 
                 findMinMax(yearData.recieved + yearData.donated);
 
             }
@@ -117,13 +130,15 @@ function processData(){
         }
     }
 
+    countries = Object.entries(countryDict).sort((a, b) => b[1] - a[1])
+            .map(d=>d[0]);
     return { processedData, countries, max, min};
 }
 
 function getChartConfig() {
-    let margin = { top: 10, right:150, bottom: 50, left: 140 },
-    width = 2100 - margin.left - margin.right,
-    height = 1300 - margin.top - margin.bottom;
+    let margin = { top: 10, right:150, bottom: 50, left: 160 },
+    width = 2500 - margin.left - margin.right,
+    height = 1400 - margin.top - margin.bottom;
     
     let container = d3.select("#Matrix")
         .attr("width", width + margin.left + margin.right)
@@ -142,7 +157,8 @@ function getMatrixChartScale(config, data){
         
     let yScale = d3.scalePoint()
         .range([0, height])
-        .domain(countries.map(d =>d))
+        .domain(countries
+        .map(d => d))
         .padding(1)
 
     let parseDate = d3.timeParse("%Y");
@@ -154,7 +170,7 @@ function getMatrixChartScale(config, data){
     
     let rScale = d3.scalePow().exponent(0.5)
         .domain([min,max])
-        .range([8, 40])
+        .range([5, 40])
   
     let piColorScale = d3.scaleOrdinal([1, 0]).range(["#4682b4", "#ff8c00"]);
 
@@ -172,6 +188,7 @@ function drawMatrixChartAxis(config,scales) {
 
     container.append("g")
         .attr("class", "y axis")
+        .style("font-size", "15px")
         .call(yAxis);
 
     container.append("text")
@@ -180,15 +197,15 @@ function drawMatrixChartAxis(config,scales) {
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
-        .style("font-size", "20px")
-        .text("Countries"); 
+        .text("Countries")
+        .style("font-size", "25px"); 
 
     let xAxis = d3.axisBottom(xScale);
 
     container.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .style("font-size", "20px")
+        .style("font-size", "15px")
         .call(xAxis);
     
     // text label for the x axis
@@ -197,7 +214,7 @@ function drawMatrixChartAxis(config,scales) {
             "translate(" + ((width) / 2) + " ," +
             (height + margin.top + 30) + ")")
         .style("text-anchor", "middle")
-        .style("font-size", "20px")
+        .style("font-size", "25px")
         .text("Year");
 }   
 
@@ -213,18 +230,16 @@ function drawMatrixChartPies(config, scales, data){
         .outerRadius((d) => rScale(d.data.donated+d.data.recieved));
         //.outerRadius(15);
 
-    let points = container.selectAll("g")
+    let points = container.selectAll("div")
         .data(processedData)
         .enter()
         .append("g")
         .attr("transform", function (d) { return "translate(" + [xScale(parseDate(d.year)), yScale(d.country)] + ")" })
         .attr("class", "pies")
 
-
     let pie = d3.pie()
         .value(function (d) { return d.piValue });
 
-    
     let pies = points.selectAll(".pies")
         .data(function (d) {
             let newObj = {
@@ -233,8 +248,8 @@ function drawMatrixChartPies(config, scales, data){
             let newObj2 = {
                 piValue: d.donated
             }
+            
             let piData = [{ ...d, ...newObj }, { ...d, ...newObj2 }]
-            // console.log(d.country);
             return pie(piData) ;
         })
         .enter()
@@ -296,7 +311,7 @@ function drawLegend(config, data, scales) {
         .attr("width", 20).attr("height", 20);
 
     // Bubble legend
-    let bubbleData = [min + max / 5, min+max/2, max] 
+    let bubbleData = [min + max /20,min + max / 5, min+max/2, max] 
 
     let bubbleLegend = container.selectAll(".bubbleLegend")
         .data(bubbleData)
