@@ -1,0 +1,278 @@
+,target,source,purpose,amount
+0,Brazil,Australia,Social/ welfare services,2897.0
+1,Brazil,Austria,Social/ welfare services,2753256.0
+2,Brazil,Belgium,Social/ welfare services,8757846.0
+3,Brazil,Canada,Social/ welfare services,798281.0
+4,Brazil,Chile,Social/ welfare services,22731.0
+5,Brazil,Czech Republic,Social/ welfare services,6669.0
+6,Brazil,Finland,Social/ welfare services,1877513.0
+7,Brazil,France,Social/ welfare services,113036702.0
+8,Brazil,Germany,Social/ welfare services,86987540.0
+9,Brazil,Greece,Social/ welfare services,286091.0
+10,Brazil,Ireland,Social/ welfare services,336007.0
+11,Brazil,Italy,Social/ welfare services,16217388.0
+12,Brazil,Japan,Social/ welfare services,6102650.0
+13,Brazil,Luxembourg,Social/ welfare services,4432417.0
+14,Brazil,Netherlands,Social/ welfare services,3525054.0
+15,Brazil,Norway,Social/ welfare services,15761659.0
+16,Brazil,Portugal,Social/ welfare services,6798406.0
+17,Brazil,Spain,Social/ welfare services,44960039.0
+18,Brazil,Sweden,Social/ welfare services,2061860.0
+19,Brazil,Switzerland,Social/ welfare services,3625610.0
+20,Brazil,United Kingdom,Social/ welfare services,8301712.0
+21,Brazil,United States,Social/ welfare services,84047102.0
+22,Chile,Australia,Social/ welfare services,5163.0
+23,Chile,Belgium,Social/ welfare services,8404035.0
+24,Chile,Canada,Social/ welfare services,2682103.0
+25,Chile,Colombia,Social/ welfare services,1051.0
+26,Chile,Denmark,Social/ welfare services,14316493.0
+27,Chile,Finland,Social/ welfare services,228020.0
+28,Chile,France,Social/ welfare services,19169274.0
+29,Chile,Germany,Social/ welfare services,27442127.0
+30,Chile,Greece,Social/ welfare services,11629.0
+31,Chile,Italy,Social/ welfare services,5824757.0
+32,Chile,Japan,Social/ welfare services,5160914.0
+33,Chile,Luxembourg,Social/ welfare services,2606.0
+34,Chile,Netherlands,Social/ welfare services,18294463.0
+35,Chile,Norway,Social/ welfare services,2549366.0
+36,Chile,Portugal,Social/ welfare services,264964.0
+37,Chile,Spain,Social/ welfare services,11628672.0
+38,Chile,Sweden,Social/ welfare services,5820723.0
+39,Chile,Switzerland,Social/ welfare services,185587.0
+40,Chile,United Kingdom,Social/ welfare services,191056.0
+41,Chile,United States,Social/ welfare services,6928150.0
+42,Colombia,Austria,Social/ welfare services,131959.0
+43,Colombia,Belgium,Social/ welfare services,3479328.0
+44,Colombia,Canada,Social/ welfare services,3522732.0
+45,Colombia,Chile,Social/ welfare services,10204.0
+46,Colombia,Denmark,Social/ welfare services,1665185.0
+47,Colombia,Finland,Social/ welfare services,748723.0
+48,Colombia,France,Social/ welfare services,34647232.0
+49,Colombia,Germany,Social/ welfare services,30042236.0
+50,Colombia,Greece,Social/ welfare services,33778.0
+51,Colombia,Ireland,Social/ welfare services,188767.0
+52,Colombia,Italy,Social/ welfare services,10712878.0
+53,Colombia,Japan,Social/ welfare services,8523219.0
+54,Colombia,Korea,Social/ welfare services,412773.0
+55,Colombia,Luxembourg,Social/ welfare services,800711.0
+56,Colombia,Netherlands,Social/ welfare services,9606093.0
+57,Colombia,Norway,Social/ welfare services,8065205.0
+58,Colombia,Portugal,Social/ welfare services,23095.0
+59,Colombia,Spain,Social/ welfare services,36903610.0
+60,Colombia,Sweden,Social/ welfare services,9435500.0
+61,Colombia,Switzerland,Social/ welfare services,2480227.0
+62,Colombia,United Kingdom,Social/ welfare services,1609713.0
+63,Colombia,United States,Social/ welfare services,6258454451.0
+64,Cyprus,France,Social/ welfare services,8818448.0
+65,Cyprus,Germany,Social/ welfare services,209290.0
+66,Cyprus,Greece,Social/ welfare services,149513.0
+67,Cyprus,Italy,Social/ welfare services,2665.0
+68,Cyprus,Spain,Social/ welfare services,10116.0
+69,Czech Republic,Austria,Social/ welfare services,285943.0
+70,Czech Republic,Canada,Social/ welfare services,301063.0
+71,Czech Republic,France,Social/ welfare services,27640673.0
+72,Czech Republic,Germany,Social/ welfare services,11713224.0
+73,Czech Republic,Italy,Social/ welfare services,44073.0
+74,Czech Republic,Japan,Social/ welfare services,593473.0
+75,Czech Republic,Liechtenstein,Social/ welfare services,153164.0
+76,Czech Republic,Netherlands,Social/ welfare services,39062.0
+77,Czech Republic,Portugal,Social/ welfare services,32098.0
+78,Czech Republic,Spain,Social/ welfare services,297509.0
+79,Czech Republic,Sweden,Social/ welfare services,109993.0
+80,Czech Republic,Switzerland,Social/ welfare services,788214.0
+81,Czech Republic,United Kingdom,Social/ welfare services,266290.0
+82,Czech Republic,United States,Social/ welfare services,4200094.0
+83,Estonia,Austria,Social/ welfare services,20161.0
+84,Estonia,Finland,Social/ welfare services,252909.0
+85,Estonia,France,Social/ welfare services,2568375.0
+86,Estonia,Germany,Social/ welfare services,2657428.0
+87,Estonia,Japan,Social/ welfare services,78950.0
+88,Estonia,Liechtenstein,Social/ welfare services,7689.0
+89,Estonia,Netherlands,Social/ welfare services,11548.0
+90,Estonia,Norway,Social/ welfare services,523456.0
+91,Estonia,Portugal,Social/ welfare services,3928.0
+92,Estonia,Spain,Social/ welfare services,205418.0
+93,Estonia,Sweden,Social/ welfare services,971502.0
+94,Estonia,United Kingdom,Social/ welfare services,17082.0
+95,Finland,Liechtenstein,Social/ welfare services,37777.0
+96,Germany,Liechtenstein,Social/ welfare services,60164.0
+97,Hungary,Austria,Social/ welfare services,274869.0
+98,Hungary,Canada,Social/ welfare services,560146.0
+99,Hungary,France,Social/ welfare services,20108903.0
+100,Hungary,Germany,Social/ welfare services,17513721.0
+101,Hungary,Italy,Social/ welfare services,36148.0
+102,Hungary,Japan,Social/ welfare services,1643493.0
+103,Hungary,Liechtenstein,Social/ welfare services,145356.0
+104,Hungary,Netherlands,Social/ welfare services,1599069.0
+105,Hungary,Norway,Social/ welfare services,104390.0
+106,Hungary,Portugal,Social/ welfare services,5321.0
+107,Hungary,Spain,Social/ welfare services,385930.0
+108,Hungary,Sweden,Social/ welfare services,51487.0
+109,Hungary,United States,Social/ welfare services,9837.0
+110,India,Australia,Social/ welfare services,11294074.0
+111,India,Austria,Social/ welfare services,1556414.0
+112,India,Belgium,Social/ welfare services,8541514.0
+113,India,Canada,Social/ welfare services,1260753.0
+114,India,Czech Republic,Social/ welfare services,119901.0
+115,India,Denmark,Social/ welfare services,13309396.0
+116,India,Finland,Social/ welfare services,5113365.0
+117,India,France,Social/ welfare services,77722824.0
+118,India,Germany,Social/ welfare services,123913079.0
+119,India,Greece,Social/ welfare services,31926.0
+120,India,Ireland,Social/ welfare services,1112880.0
+121,India,Italy,Social/ welfare services,9846011.0
+122,India,Japan,Social/ welfare services,5181608.0
+123,India,Korea,Social/ welfare services,188759.0
+124,India,Luxembourg,Social/ welfare services,1714350.0
+125,India,Netherlands,Social/ welfare services,160850021.0
+126,India,Norway,Social/ welfare services,183670730.0
+127,India,Poland,Social/ welfare services,14112.0
+128,India,Portugal,Social/ welfare services,2545081.0
+129,India,Spain,Social/ welfare services,11126891.0
+130,India,Sweden,Social/ welfare services,12195277.0
+131,India,Switzerland,Social/ welfare services,3154205.0
+132,India,United Arab Emirates,Social/ welfare services,19989.0
+133,India,United Kingdom,Social/ welfare services,262864852.0
+134,India,United States,Social/ welfare services,74035116.0
+135,Korea,Belgium,Social/ welfare services,14077.0
+136,Korea,France,Social/ welfare services,14636746.0
+137,Korea,Germany,Social/ welfare services,12173119.0
+138,Korea,Greece,Social/ welfare services,225611.0
+139,Korea,Japan,Social/ welfare services,2970444.0
+140,Korea,Netherlands,Social/ welfare services,5834.0
+141,Korea,Portugal,Social/ welfare services,99257.0
+142,Korea,Spain,Social/ welfare services,56480.0
+143,Kuwait,France,Social/ welfare services,3510094.0
+144,Kuwait,Germany,Social/ welfare services,685651.0
+145,Kuwait,Japan,Social/ welfare services,271416.0
+146,Kuwait,Spain,Social/ welfare services,20232.0
+147,Latvia,Austria,Social/ welfare services,18300.0
+148,Latvia,France,Social/ welfare services,1307129.0
+149,Latvia,Germany,Social/ welfare services,3585513.0
+150,Latvia,Japan,Social/ welfare services,313977.0
+151,Latvia,Netherlands,Social/ welfare services,891618.0
+152,Latvia,Norway,Social/ welfare services,233837.0
+153,Latvia,Sweden,Social/ welfare services,2297621.0
+154,Latvia,United Kingdom,Social/ welfare services,322156.0
+155,Liechtenstein,Liechtenstein,Social/ welfare services,66713.0
+156,Lithuania,Austria,Social/ welfare services,39008.0
+157,Lithuania,France,Social/ welfare services,3864914.0
+158,Lithuania,Germany,Social/ welfare services,3367991.0
+159,Lithuania,Italy,Social/ welfare services,26624.0
+160,Lithuania,Japan,Social/ welfare services,521679.0
+161,Lithuania,Netherlands,Social/ welfare services,1546107.0
+162,Lithuania,Norway,Social/ welfare services,111349.0
+163,Lithuania,Spain,Social/ welfare services,205098.0
+164,Lithuania,Sweden,Social/ welfare services,4841849.0
+165,Lithuania,United States,Social/ welfare services,147544.0
+166,Poland,Austria,Social/ welfare services,323373.0
+167,Poland,Belgium,Social/ welfare services,5531.0
+168,Poland,Canada,Social/ welfare services,140268.0
+169,Poland,France,Social/ welfare services,27105890.0
+170,Poland,Germany,Social/ welfare services,23297914.0
+171,Poland,Italy,Social/ welfare services,1935.0
+172,Poland,Japan,Social/ welfare services,708357.0
+173,Poland,Liechtenstein,Social/ welfare services,174667.0
+174,Poland,Netherlands,Social/ welfare services,2172003.0
+175,Poland,Norway,Social/ welfare services,440899.0
+176,Poland,Portugal,Social/ welfare services,14705.0
+177,Poland,Spain,Social/ welfare services,4762733.0
+178,Poland,Sweden,Social/ welfare services,1609148.0
+179,Poland,United Kingdom,Social/ welfare services,554423.0
+180,Qatar,France,Social/ welfare services,2083092.0
+181,Qatar,Germany,Social/ welfare services,10162.0
+182,Qatar,Japan,Social/ welfare services,31853.0
+183,Romania,Austria,Social/ welfare services,1766432.0
+184,Romania,Belgium,Social/ welfare services,34421.0
+185,Romania,France,Social/ welfare services,24153835.0
+186,Romania,Germany,Social/ welfare services,9662728.0
+187,Romania,Italy,Social/ welfare services,941057.0
+188,Romania,Japan,Social/ welfare services,3480171.0
+189,Romania,Liechtenstein,Social/ welfare services,98066.0
+190,Romania,Netherlands,Social/ welfare services,1503571.0
+191,Romania,Norway,Social/ welfare services,247208.0
+192,Romania,Portugal,Social/ welfare services,6599.0
+193,Romania,Spain,Social/ welfare services,5622613.0
+194,Romania,Sweden,Social/ welfare services,238511.0
+195,Romania,Switzerland,Social/ welfare services,553128.0
+196,Romania,United Kingdom,Social/ welfare services,14182592.0
+197,Romania,United States,Social/ welfare services,33923485.0
+198,Saudi Arabia,Brazil,Social/ welfare services,64741.0
+199,Saudi Arabia,France,Social/ welfare services,6313603.0
+200,Saudi Arabia,Germany,Social/ welfare services,3851074.0
+201,Saudi Arabia,Italy,Social/ welfare services,15147.0
+202,Saudi Arabia,Japan,Social/ welfare services,412065.0
+203,Saudi Arabia,United States,Social/ welfare services,4256224.0
+204,Slovak Republic,Austria,Social/ welfare services,196566.0
+205,Slovak Republic,Canada,Social/ welfare services,19421.0
+206,Slovak Republic,France,Social/ welfare services,10986627.0
+207,Slovak Republic,Germany,Social/ welfare services,2429065.0
+208,Slovak Republic,Japan,Social/ welfare services,1019477.0
+209,Slovak Republic,Netherlands,Social/ welfare services,503543.0
+210,Slovak Republic,Norway,Social/ welfare services,72023.0
+211,Slovak Republic,Portugal,Social/ welfare services,8091.0
+212,Slovak Republic,Spain,Social/ welfare services,75970.0
+213,Slovenia,Austria,Social/ welfare services,259440.0
+214,Slovenia,France,Social/ welfare services,4682700.0
+215,Slovenia,Germany,Social/ welfare services,76.0
+216,Slovenia,Greece,Social/ welfare services,28975.0
+217,Slovenia,Japan,Social/ welfare services,4784.0
+218,Slovenia,Netherlands,Social/ welfare services,6565.0
+219,Slovenia,Portugal,Social/ welfare services,858.0
+220,Slovenia,Spain,Social/ welfare services,64315.0
+221,Slovenia,Sweden,Social/ welfare services,163985.0
+222,South Africa,Australia,Social/ welfare services,3531263.0
+223,South Africa,Austria,Social/ welfare services,938558.0
+224,South Africa,Belgium,Social/ welfare services,22657889.0
+225,South Africa,Canada,Social/ welfare services,8057122.0
+226,South Africa,Denmark,Social/ welfare services,11738492.0
+227,South Africa,Finland,Social/ welfare services,1991098.0
+228,South Africa,France,Social/ welfare services,81699945.0
+229,South Africa,Germany,Social/ welfare services,76979303.0
+230,South Africa,Greece,Social/ welfare services,386235.0
+231,South Africa,Ireland,Social/ welfare services,6439309.0
+232,South Africa,Italy,Social/ welfare services,1837973.0
+233,South Africa,Japan,Social/ welfare services,2335337.0
+234,South Africa,Korea,Social/ welfare services,120382.0
+235,South Africa,Luxembourg,Social/ welfare services,129083.0
+236,South Africa,Monaco,Social/ welfare services,158893.0
+237,South Africa,Netherlands,Social/ welfare services,81629653.0
+238,South Africa,New Zealand,Social/ welfare services,215244.0
+239,South Africa,Norway,Social/ welfare services,29149539.0
+240,South Africa,Poland,Social/ welfare services,17253.0
+241,South Africa,Portugal,Social/ welfare services,97870.0
+242,South Africa,Spain,Social/ welfare services,734961.0
+243,South Africa,Sweden,Social/ welfare services,84016577.0
+244,South Africa,Switzerland,Social/ welfare services,3068462.0
+245,South Africa,United Kingdom,Social/ welfare services,37891768.0
+246,South Africa,United States,Social/ welfare services,18555901.0
+247,Taiwan,Belgium,Social/ welfare services,55071.0
+248,Taiwan,France,Social/ welfare services,9754298.0
+249,Taiwan,Germany,Social/ welfare services,6107031.0
+250,Taiwan,Greece,Social/ welfare services,17242.0
+251,Thailand,Australia,Social/ welfare services,16040969.0
+252,Thailand,Austria,Social/ welfare services,152408.0
+253,Thailand,Belgium,Social/ welfare services,483096.0
+254,Thailand,Canada,Social/ welfare services,1127269.0
+255,Thailand,Finland,Social/ welfare services,1007005.0
+256,Thailand,France,Social/ welfare services,34083031.0
+257,Thailand,Germany,Social/ welfare services,14090291.0
+258,Thailand,Greece,Social/ welfare services,5949.0
+259,Thailand,Italy,Social/ welfare services,1278131.0
+260,Thailand,Japan,Social/ welfare services,196403939.0
+261,Thailand,Korea,Social/ welfare services,45533.0
+262,Thailand,Luxembourg,Social/ welfare services,80488.0
+263,Thailand,Netherlands,Social/ welfare services,1090620.0
+264,Thailand,Norway,Social/ welfare services,3531090.0
+265,Thailand,Portugal,Social/ welfare services,354932.0
+266,Thailand,Spain,Social/ welfare services,404757.0
+267,Thailand,Sweden,Social/ welfare services,56495.0
+268,Thailand,United Kingdom,Social/ welfare services,880589.0
+269,Thailand,United States,Social/ welfare services,142732235.0
+270,United Arab Emirates,France,Social/ welfare services,2395092.0
+271,United Arab Emirates,Germany,Social/ welfare services,1465198.0
+272,United Arab Emirates,Japan,Social/ welfare services,9178.0
+273,United Arab Emirates,Spain,Social/ welfare services,31688.0
+274,United Arab Emirates,United States,Social/ welfare services,4685.0
+275,United States,Colombia,Social/ welfare services,1019.0
+276,United States,Qatar,Social/ welfare services,6795939.0

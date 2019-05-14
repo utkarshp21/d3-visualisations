@@ -1,0 +1,245 @@
+,target,source,purpose,amount
+0,Brazil,Australia,Higher education,439339.0
+1,Brazil,Austria,Higher education,12891927.0
+2,Brazil,Belgium,Higher education,1092295.0
+3,Brazil,Canada,Higher education,4212673.0
+4,Brazil,France,Higher education,257602255.0
+5,Brazil,Germany,Higher education,261236736.0
+6,Brazil,Greece,Higher education,1829851.0
+7,Brazil,Italy,Higher education,11308072.0
+8,Brazil,Japan,Higher education,10249937.0
+9,Brazil,Korea,Higher education,1342435.0
+10,Brazil,Netherlands,Higher education,2130761.0
+11,Brazil,New Zealand,Higher education,1820932.0
+12,Brazil,Norway,Higher education,419277.0
+13,Brazil,Poland,Higher education,69369.0
+14,Brazil,Portugal,Higher education,12299244.0
+15,Brazil,Slovak Republic,Higher education,14669.0
+16,Brazil,Spain,Higher education,28483888.0
+17,Brazil,Sweden,Higher education,193922.0
+18,Brazil,Switzerland,Higher education,1781311.0
+19,Brazil,United Kingdom,Higher education,5753139.0
+20,Chile,Australia,Higher education,1356739.0
+21,Chile,Austria,Higher education,2833282.0
+22,Chile,Belgium,Higher education,6782786.0
+23,Chile,Canada,Higher education,2478932.0
+24,Chile,France,Higher education,72338231.0
+25,Chile,Germany,Higher education,96260470.0
+26,Chile,Greece,Higher education,598368.0
+27,Chile,Italy,Higher education,5401038.0
+28,Chile,Japan,Higher education,1508003.0
+29,Chile,Korea,Higher education,695850.0
+30,Chile,Netherlands,Higher education,737086.0
+31,Chile,New Zealand,Higher education,3684852.0
+32,Chile,Portugal,Higher education,446509.0
+33,Chile,Slovak Republic,Higher education,2296.0
+34,Chile,Spain,Higher education,20805147.0
+35,Chile,Sweden,Higher education,20136.0
+36,Chile,Switzerland,Higher education,338410.0
+37,Chile,United Kingdom,Higher education,2111802.0
+38,Colombia,Australia,Higher education,1827670.0
+39,Colombia,Austria,Higher education,8700507.0
+40,Colombia,Belgium,Higher education,1654543.0
+41,Colombia,Canada,Higher education,3750385.0
+42,Colombia,Chile,Higher education,54881.0
+43,Colombia,Czech Republic,Higher education,116693.0
+44,Colombia,France,Higher education,185832126.0
+45,Colombia,Germany,Higher education,146734186.0
+46,Colombia,Greece,Higher education,443182.0
+47,Colombia,Italy,Higher education,3514080.0
+48,Colombia,Japan,Higher education,2146801.0
+49,Colombia,Korea,Higher education,1277906.0
+50,Colombia,Luxembourg,Higher education,391724.0
+51,Colombia,Netherlands,Higher education,7127192.0
+52,Colombia,New Zealand,Higher education,662756.0
+53,Colombia,Norway,Higher education,72898.0
+54,Colombia,Poland,Higher education,5522.0
+55,Colombia,Portugal,Higher education,86604.0
+56,Colombia,Spain,Higher education,36509624.0
+57,Colombia,Sweden,Higher education,222437.0
+58,Colombia,Switzerland,Higher education,2581552.0
+59,Colombia,United Kingdom,Higher education,1832914.0
+60,Cyprus,Austria,Higher education,569848.0
+61,Cyprus,France,Higher education,2872833.0
+62,Cyprus,Italy,Higher education,205390.0
+63,Cyprus,Japan,Higher education,27266.0
+64,Cyprus,Spain,Higher education,59573.0
+65,Cyprus,United States,Higher education,9148060.0
+66,Czech Republic,Austria,Higher education,3805307.0
+67,Czech Republic,France,Higher education,14743126.0
+68,Czech Republic,Germany,Higher education,763405.0
+69,Czech Republic,Greece,Higher education,18218.0
+70,Czech Republic,Italy,Higher education,105309.0
+71,Czech Republic,Japan,Higher education,841749.0
+72,Czech Republic,Portugal,Higher education,5078.0
+73,Czech Republic,Spain,Higher education,742245.0
+74,Czech Republic,Switzerland,Higher education,159935.0
+75,Estonia,Finland,Higher education,105019.0
+76,Estonia,France,Higher education,2747176.0
+77,Estonia,Greece,Higher education,6157.0
+78,Estonia,Italy,Higher education,11052.0
+79,Estonia,Japan,Higher education,198119.0
+80,Estonia,Portugal,Higher education,2710.0
+81,Estonia,Spain,Higher education,58764.0
+82,Estonia,Sweden,Higher education,101979.0
+83,Estonia,Switzerland,Higher education,122088.0
+84,Hungary,Austria,Higher education,10070864.0
+85,Hungary,France,Higher education,17423455.0
+86,Hungary,Italy,Higher education,1268055.0
+87,Hungary,Japan,Higher education,3516570.0
+88,Hungary,Portugal,Higher education,6634.0
+89,Hungary,Spain,Higher education,484794.0
+90,Hungary,Switzerland,Higher education,307792.0
+91,India,Australia,Higher education,65528939.0
+92,India,Austria,Higher education,18705840.0
+93,India,Belgium,Higher education,2200367.0
+94,India,Canada,Higher education,10844097.0
+95,India,Cyprus,Higher education,5599.0
+96,India,Czech Republic,Higher education,33985.0
+97,India,Denmark,Higher education,662581.0
+98,India,France,Higher education,99265432.0
+99,India,Germany,Higher education,598739828.0
+100,India,Greece,Higher education,767611.0
+101,India,Ireland,Higher education,483704.0
+102,India,Italy,Higher education,5345846.0
+103,India,Japan,Higher education,58085538.0
+104,India,Korea,Higher education,3413251.0
+105,India,Luxembourg,Higher education,26579.0
+106,India,Netherlands,Higher education,2942487.0
+107,India,New Zealand,Higher education,693300.0
+108,India,Norway,Higher education,3824518.0
+109,India,Poland,Higher education,85713.0
+110,India,Portugal,Higher education,912621.0
+111,India,Slovenia,Higher education,14308.0
+112,India,Spain,Higher education,6705347.0
+113,India,Sweden,Higher education,6640837.0
+114,India,Switzerland,Higher education,4825882.0
+115,India,United Kingdom,Higher education,8937955.0
+116,India,United States,Higher education,989089.0
+117,Korea,Australia,Higher education,347191.0
+118,Korea,Austria,Higher education,16239122.0
+119,Korea,Belgium,Higher education,13360.0
+120,Korea,France,Higher education,34409507.0
+121,Korea,Germany,Higher education,42501366.0
+122,Korea,Italy,Higher education,106908.0
+123,Korea,Japan,Higher education,78125351.0
+124,Korea,Spain,Higher education,435434.0
+125,Korea,Switzerland,Higher education,48835.0
+126,Korea,United States,Higher education,16887763.0
+127,Kuwait,France,Higher education,1447441.0
+128,Kuwait,Japan,Higher education,92490.0
+129,Latvia,Canada,Higher education,1451760.0
+130,Latvia,France,Higher education,2724094.0
+131,Latvia,Greece,Higher education,60559.0
+132,Latvia,Italy,Higher education,23992.0
+133,Latvia,Japan,Higher education,303409.0
+134,Latvia,Spain,Higher education,134564.0
+135,Latvia,Sweden,Higher education,443585.0
+136,Latvia,Switzerland,Higher education,89124.0
+137,Lithuania,France,Higher education,4011611.0
+138,Lithuania,Greece,Higher education,12314.0
+139,Lithuania,Italy,Higher education,6274.0
+140,Lithuania,Japan,Higher education,1015326.0
+141,Lithuania,Spain,Higher education,130676.0
+142,Lithuania,Sweden,Higher education,196189.0
+143,Lithuania,Switzerland,Higher education,80578.0
+144,Poland,Austria,Higher education,452335.0
+145,Poland,Canada,Higher education,2227295.0
+146,Poland,France,Higher education,58305562.0
+147,Poland,Greece,Higher education,108804.0
+148,Poland,Italy,Higher education,481581.0
+149,Poland,Japan,Higher education,2174664.0
+150,Poland,Norway,Higher education,163892.0
+151,Poland,Portugal,Higher education,13294.0
+152,Poland,Spain,Higher education,546928.0
+153,Poland,Sweden,Higher education,1487789.0
+154,Poland,Switzerland,Higher education,250280.0
+155,Qatar,France,Higher education,926917.0
+156,Qatar,Japan,Higher education,27266.0
+157,Romania,Austria,Higher education,280603.0
+158,Romania,France,Higher education,75586458.0
+159,Romania,Greece,Higher education,761521.0
+160,Romania,Italy,Higher education,832447.0
+161,Romania,Japan,Higher education,2996572.0
+162,Romania,Liechtenstein,Higher education,19287.0
+163,Romania,Portugal,Higher education,8291.0
+164,Romania,Spain,Higher education,1251141.0
+165,Romania,Switzerland,Higher education,203887.0
+166,Saudi Arabia,Austria,Higher education,750464.0
+167,Saudi Arabia,Belgium,Higher education,9103.0
+168,Saudi Arabia,France,Higher education,8380348.0
+169,Saudi Arabia,Germany,Higher education,6148140.0
+170,Saudi Arabia,Greece,Higher education,802377.0
+171,Saudi Arabia,Italy,Higher education,114924.0
+172,Saudi Arabia,Japan,Higher education,692290.0
+173,Saudi Arabia,Spain,Higher education,7460.0
+174,Saudi Arabia,United States,Higher education,1077095.0
+175,Slovak Republic,Austria,Higher education,1102396.0
+176,Slovak Republic,France,Higher education,9626980.0
+177,Slovak Republic,Greece,Higher education,12314.0
+178,Slovak Republic,Italy,Higher education,14686.0
+179,Slovak Republic,Japan,Higher education,1094919.0
+180,Slovak Republic,Spain,Higher education,219517.0
+181,Slovak Republic,Switzerland,Higher education,111100.0
+182,Slovak Republic,United Kingdom,Higher education,462595.0
+183,Slovenia,Austria,Higher education,31119331.0
+184,Slovenia,Belgium,Higher education,58795.0
+185,Slovenia,France,Higher education,3047557.0
+186,Slovenia,Germany,Higher education,5119735.0
+187,Slovenia,Greece,Higher education,6157.0
+188,Slovenia,Italy,Higher education,794050.0
+189,Slovenia,Portugal,Higher education,23649.0
+190,Slovenia,Spain,Higher education,283426.0
+191,Slovenia,Switzerland,Higher education,30522.0
+192,South Africa,Australia,Higher education,34919998.0
+193,South Africa,Austria,Higher education,1087446.0
+194,South Africa,Belgium,Higher education,23707094.0
+195,South Africa,Canada,Higher education,4470534.0
+196,South Africa,Denmark,Higher education,9014066.0
+197,South Africa,Finland,Higher education,13805085.0
+198,South Africa,France,Higher education,24457170.0
+199,South Africa,Germany,Higher education,25289400.0
+200,South Africa,Greece,Higher education,4462451.0
+201,South Africa,Ireland,Higher education,10481218.0
+202,South Africa,Italy,Higher education,448216.0
+203,South Africa,Japan,Higher education,600683.0
+204,South Africa,Korea,Higher education,58571.0
+205,South Africa,Netherlands,Higher education,39101867.0
+206,South Africa,New Zealand,Higher education,894256.0
+207,South Africa,Norway,Higher education,53969044.0
+208,South Africa,Portugal,Higher education,750403.0
+209,South Africa,Spain,Higher education,947708.0
+210,South Africa,Sweden,Higher education,37067482.0
+211,South Africa,Switzerland,Higher education,19983447.0
+212,South Africa,Thailand,Higher education,20992.0
+213,South Africa,United Kingdom,Higher education,15211931.0
+214,South Africa,United States,Higher education,63239455.0
+215,Taiwan,Australia,Higher education,309550.0
+216,Taiwan,Austria,Higher education,6063631.0
+217,Taiwan,Belgium,Higher education,165389.0
+218,Taiwan,France,Higher education,9898021.0
+219,Taiwan,Italy,Higher education,5324.0
+220,Thailand,Australia,Higher education,79782863.0
+221,Thailand,Austria,Higher education,9909941.0
+222,Thailand,Belgium,Higher education,1194173.0
+223,Thailand,Canada,Higher education,11098605.0
+224,Thailand,France,Higher education,76743678.0
+225,Thailand,Germany,Higher education,113764182.0
+226,Thailand,Greece,Higher education,297585.0
+227,Thailand,Italy,Higher education,4400551.0
+228,Thailand,Japan,Higher education,245650383.0
+229,Thailand,Korea,Higher education,5640064.0
+230,Thailand,Netherlands,Higher education,1204903.0
+231,Thailand,New Zealand,Higher education,995774.0
+232,Thailand,Norway,Higher education,202777.0
+233,Thailand,Poland,Higher education,2761.0
+234,Thailand,Portugal,Higher education,304068.0
+235,Thailand,Slovak Republic,Higher education,17723.0
+236,Thailand,Spain,Higher education,2110941.0
+237,Thailand,Sweden,Higher education,1030740.0
+238,Thailand,Switzerland,Higher education,1081516.0
+239,Thailand,United Kingdom,Higher education,1710507.0
+240,Thailand,United States,Higher education,6077487.0
+241,United Arab Emirates,France,Higher education,1266098.0
+242,United Arab Emirates,Japan,Higher education,177746.0
+243,United States,Qatar,Higher education,29952782.0

@@ -1,0 +1,231 @@
+id,target,source,purpose,amount
+0,Austria,Liechtenstein,Sectors not specified,165424.0
+1,Brazil,Australia,Sectors not specified,4816488.0
+2,Brazil,Austria,Sectors not specified,3457420.0
+3,Brazil,Belgium,Sectors not specified,3359246.0
+4,Brazil,Canada,Sectors not specified,22689068.0
+5,Brazil,Finland,Sectors not specified,247299.0
+6,Brazil,France,Sectors not specified,105081626.0
+7,Brazil,Germany,Sectors not specified,116875654.0
+8,Brazil,Greece,Sectors not specified,88596.0
+9,Brazil,Ireland,Sectors not specified,65367.0
+10,Brazil,Italy,Sectors not specified,10636362.0
+11,Brazil,Japan,Sectors not specified,247693985.0
+12,Brazil,Korea,Sectors not specified,1232172.0
+13,Brazil,Luxembourg,Sectors not specified,1084015.0
+14,Brazil,Netherlands,Sectors not specified,2991555.0
+15,Brazil,Norway,Sectors not specified,7134757.0
+16,Brazil,Portugal,Sectors not specified,108182.0
+17,Brazil,Spain,Sectors not specified,4006024.0
+18,Brazil,Sweden,Sectors not specified,1357544.0
+19,Brazil,Switzerland,Sectors not specified,4628606.0
+20,Brazil,United Kingdom,Sectors not specified,157467318.0
+21,Brazil,United States,Sectors not specified,26337932.0
+22,Chile,Australia,Sectors not specified,4313712.0
+23,Chile,Austria,Sectors not specified,186633.0
+24,Chile,Belgium,Sectors not specified,4442360.0
+25,Chile,Canada,Sectors not specified,3898895.0
+26,Chile,Colombia,Sectors not specified,4412.0
+27,Chile,Denmark,Sectors not specified,87965.0
+28,Chile,Finland,Sectors not specified,42974.0
+29,Chile,France,Sectors not specified,5343666.0
+30,Chile,Germany,Sectors not specified,21669067.0
+31,Chile,Greece,Sectors not specified,58390.0
+32,Chile,Ireland,Sectors not specified,29298.0
+33,Chile,Italy,Sectors not specified,1102453.0
+34,Chile,Japan,Sectors not specified,68468055.0
+35,Chile,Korea,Sectors not specified,20194.0
+36,Chile,Luxembourg,Sectors not specified,416977.0
+37,Chile,Netherlands,Sectors not specified,3473480.0
+38,Chile,Norway,Sectors not specified,2630131.0
+39,Chile,Spain,Sectors not specified,37873703.0
+40,Chile,Sweden,Sectors not specified,14864127.0
+41,Chile,Switzerland,Sectors not specified,756847.0
+42,Chile,United States,Sectors not specified,816129.0
+43,Colombia,Australia,Sectors not specified,2575088.0
+44,Colombia,Austria,Sectors not specified,225757.0
+45,Colombia,Belgium,Sectors not specified,1891523.0
+46,Colombia,Brazil,Sectors not specified,79772.0
+47,Colombia,Canada,Sectors not specified,28659607.0
+48,Colombia,Chile,Sectors not specified,77492.0
+49,Colombia,Finland,Sectors not specified,72095.0
+50,Colombia,France,Sectors not specified,2069483.0
+51,Colombia,Germany,Sectors not specified,6900793.0
+52,Colombia,Ireland,Sectors not specified,940847.0
+53,Colombia,Italy,Sectors not specified,1164230.0
+54,Colombia,Japan,Sectors not specified,66148946.0
+55,Colombia,Korea,Sectors not specified,532270.0
+56,Colombia,Luxembourg,Sectors not specified,258759.0
+57,Colombia,Netherlands,Sectors not specified,30530535.0
+58,Colombia,Norway,Sectors not specified,33710633.0
+59,Colombia,Spain,Sectors not specified,20199128.0
+60,Colombia,Sweden,Sectors not specified,18889049.0
+61,Colombia,Switzerland,Sectors not specified,10804728.0
+62,Colombia,United Kingdom,Sectors not specified,7524833.0
+63,Colombia,United States,Sectors not specified,46436856.0
+64,Cyprus,France,Sectors not specified,9117558.0
+65,Cyprus,Italy,Sectors not specified,201639.0
+66,Cyprus,United States,Sectors not specified,42241920.0
+67,Czech Republic,Canada,Sectors not specified,19104121.0
+68,Czech Republic,France,Sectors not specified,22156.0
+69,Czech Republic,Netherlands,Sectors not specified,366533.0
+70,Czech Republic,Norway,Sectors not specified,20158.0
+71,Czech Republic,Portugal,Sectors not specified,18436.0
+72,Czech Republic,Sweden,Sectors not specified,13551.0
+73,Czech Republic,Switzerland,Sectors not specified,2601727.0
+74,Czech Republic,United Kingdom,Sectors not specified,297987.0
+75,Czech Republic,United States,Sectors not specified,339095380.0
+76,Estonia,Finland,Sectors not specified,176528.0
+77,Estonia,Italy,Sectors not specified,8914.0
+78,Estonia,Netherlands,Sectors not specified,671341.0
+79,Estonia,Norway,Sectors not specified,73437.0
+80,Estonia,Sweden,Sectors not specified,369242.0
+81,Hungary,Belgium,Sectors not specified,55987.0
+82,Hungary,Canada,Sectors not specified,65848.0
+83,Hungary,France,Sectors not specified,1772930.0
+84,Hungary,Japan,Sectors not specified,86810.0
+85,Hungary,Netherlands,Sectors not specified,419988.0
+86,Hungary,Norway,Sectors not specified,43038.0
+87,Hungary,Sweden,Sectors not specified,1492217.0
+88,Hungary,Switzerland,Sectors not specified,147597.0
+89,Hungary,United Kingdom,Sectors not specified,4172078.0
+90,Hungary,United States,Sectors not specified,1570055.0
+91,India,Australia,Sectors not specified,20448581.0
+92,India,Austria,Sectors not specified,39374960.0
+93,India,Belgium,Sectors not specified,57885292.0
+94,India,Canada,Sectors not specified,19412709.0
+95,India,Czech Republic,Sectors not specified,397563.0
+96,India,Denmark,Sectors not specified,36472424.0
+97,India,Finland,Sectors not specified,9262111.0
+98,India,France,Sectors not specified,261972400.0
+99,India,Germany,Sectors not specified,166399902.0
+100,India,Greece,Sectors not specified,113431.0
+101,India,Ireland,Sectors not specified,651012.0
+102,India,Italy,Sectors not specified,6671196.0
+103,India,Japan,Sectors not specified,506366808.0
+104,India,Korea,Sectors not specified,34998619.0
+105,India,Liechtenstein,Sectors not specified,96434.0
+106,India,Luxembourg,Sectors not specified,2732090.0
+107,India,Netherlands,Sectors not specified,501604909.0
+108,India,Norway,Sectors not specified,37374907.0
+109,India,Portugal,Sectors not specified,22093.0
+110,India,Slovak Republic,Sectors not specified,326093.0
+111,India,Spain,Sectors not specified,6764483.0
+112,India,Sweden,Sectors not specified,38391314.0
+113,India,Switzerland,Sectors not specified,76379071.0
+114,India,United Kingdom,Sectors not specified,3091737189.0
+115,India,United States,Sectors not specified,157018285.0
+116,Korea,Austria,Sectors not specified,6920.0
+117,Korea,Belgium,Sectors not specified,11517.0
+118,Korea,Canada,Sectors not specified,174873.0
+119,Korea,Germany,Sectors not specified,22965.0
+120,Korea,Italy,Sectors not specified,71781.0
+121,Korea,Japan,Sectors not specified,15738786.0
+122,Korea,Netherlands,Sectors not specified,88000.0
+123,Korea,United States,Sectors not specified,1323258.0
+124,Kuwait,Japan,Sectors not specified,19024.0
+125,Kuwait,Sweden,Sectors not specified,10943155.0
+126,Latvia,France,Sectors not specified,208474.0
+127,Latvia,Ireland,Sectors not specified,15001.0
+128,Latvia,Liechtenstein,Sectors not specified,10168.0
+129,Latvia,Netherlands,Sectors not specified,467672.0
+130,Latvia,Norway,Sectors not specified,69371.0
+131,Latvia,Portugal,Sectors not specified,1571.0
+132,Latvia,Sweden,Sectors not specified,137397.0
+133,Lithuania,Austria,Sectors not specified,13398.0
+134,Lithuania,Czech Republic,Sectors not specified,307093.0
+135,Lithuania,France,Sectors not specified,323976.0
+136,Lithuania,Netherlands,Sectors not specified,459817.0
+137,Lithuania,Norway,Sectors not specified,82208.0
+138,Lithuania,Sweden,Sectors not specified,58114.0
+139,Poland,Finland,Sectors not specified,14120.0
+140,Poland,France,Sectors not specified,6429904.0
+141,Poland,Japan,Sectors not specified,28321.0
+142,Poland,Liechtenstein,Sectors not specified,65665.0
+143,Poland,Netherlands,Sectors not specified,185784.0
+144,Poland,Norway,Sectors not specified,54214.0
+145,Poland,Sweden,Sectors not specified,470641.0
+146,Qatar,Japan,Sectors not specified,11122.0
+147,Romania,Austria,Sectors not specified,14797.0
+148,Romania,Belgium,Sectors not specified,169130.0
+149,Romania,Canada,Sectors not specified,234760.0
+150,Romania,Czech Republic,Sectors not specified,4349787.0
+151,Romania,France,Sectors not specified,1392731.0
+152,Romania,Germany,Sectors not specified,2396437.0
+153,Romania,Greece,Sectors not specified,175608.0
+154,Romania,Ireland,Sectors not specified,121142.0
+155,Romania,Italy,Sectors not specified,645411.0
+156,Romania,Japan,Sectors not specified,449796.0
+157,Romania,Liechtenstein,Sectors not specified,74904.0
+158,Romania,Netherlands,Sectors not specified,165625.0
+159,Romania,Norway,Sectors not specified,134349.0
+160,Romania,Spain,Sectors not specified,923011.0
+161,Romania,Sweden,Sectors not specified,20154.0
+162,Romania,Switzerland,Sectors not specified,4414495.0
+163,Romania,United Kingdom,Sectors not specified,593999.0
+164,Romania,United States,Sectors not specified,27479710.0
+165,Saudi Arabia,France,Sectors not specified,5883.0
+166,Saudi Arabia,Italy,Sectors not specified,76374.0
+167,Saudi Arabia,Japan,Sectors not specified,18144837.0
+168,Saudi Arabia,Korea,Sectors not specified,5080.0
+169,Saudi Arabia,United States,Sectors not specified,28778534.0
+170,Slovak Republic,Canada,Sectors not specified,159277.0
+171,Slovak Republic,France,Sectors not specified,41708.0
+172,Slovak Republic,Germany,Sectors not specified,40838.0
+173,Slovak Republic,Ireland,Sectors not specified,13999.0
+174,Slovak Republic,Italy,Sectors not specified,259.0
+175,Slovak Republic,Netherlands,Sectors not specified,3118312.0
+176,Slovak Republic,Norway,Sectors not specified,30090.0
+177,Slovak Republic,Sweden,Sectors not specified,29567.0
+178,Slovak Republic,Switzerland,Sectors not specified,1241282.0
+179,Slovak Republic,United States,Sectors not specified,1415197.0
+180,Slovenia,Austria,Sectors not specified,163654.0
+181,Slovenia,Belgium,Sectors not specified,186366.0
+182,Slovenia,France,Sectors not specified,267038.0
+183,Slovenia,Italy,Sectors not specified,177154.0
+184,Slovenia,Netherlands,Sectors not specified,186878.0
+185,Slovenia,Sweden,Sectors not specified,58476.0
+186,South Africa,Australia,Sectors not specified,6463924.0
+187,South Africa,Austria,Sectors not specified,395858.0
+188,South Africa,Belgium,Sectors not specified,3506377.0
+189,South Africa,Canada,Sectors not specified,1668971.0
+190,South Africa,Denmark,Sectors not specified,33869488.0
+191,South Africa,Finland,Sectors not specified,1472912.0
+192,South Africa,France,Sectors not specified,9537733.0
+193,South Africa,Germany,Sectors not specified,118819964.0
+194,South Africa,Greece,Sectors not specified,16108.0
+195,South Africa,Ireland,Sectors not specified,565191.0
+196,South Africa,Italy,Sectors not specified,41310.0
+197,South Africa,Japan,Sectors not specified,55226497.0
+198,South Africa,Luxembourg,Sectors not specified,36280.0
+199,South Africa,Netherlands,Sectors not specified,4679577.0
+200,South Africa,Norway,Sectors not specified,45446130.0
+201,South Africa,Portugal,Sectors not specified,178500.0
+202,South Africa,Spain,Sectors not specified,114173.0
+203,South Africa,Sweden,Sectors not specified,528193413.0
+204,South Africa,Switzerland,Sectors not specified,16911051.0
+205,South Africa,United Kingdom,Sectors not specified,169899774.0
+206,South Africa,United States,Sectors not specified,28517604.0
+207,Taiwan,Austria,Sectors not specified,4742.0
+208,Taiwan,Belgium,Sectors not specified,110106.0
+209,Taiwan,Switzerland,Sectors not specified,17507.0
+210,Thailand,Australia,Sectors not specified,18105033.0
+211,Thailand,Austria,Sectors not specified,60988.0
+212,Thailand,Belgium,Sectors not specified,318923.0
+213,Thailand,Canada,Sectors not specified,30415898.0
+214,Thailand,Denmark,Sectors not specified,14426875.0
+215,Thailand,France,Sectors not specified,7210264.0
+216,Thailand,Germany,Sectors not specified,20815619.0
+217,Thailand,Ireland,Sectors not specified,129927.0
+218,Thailand,Italy,Sectors not specified,515684.0
+219,Thailand,Japan,Sectors not specified,473912805.0
+220,Thailand,Korea,Sectors not specified,4445313.0
+221,Thailand,Luxembourg,Sectors not specified,267187.0
+222,Thailand,Netherlands,Sectors not specified,3261427.0
+223,Thailand,Norway,Sectors not specified,11873520.0
+224,Thailand,Spain,Sectors not specified,39944.0
+225,Thailand,Sweden,Sectors not specified,2389704.0
+226,Thailand,Switzerland,Sectors not specified,8388203.0
+227,Thailand,United Kingdom,Sectors not specified,6725258.0
+228,Thailand,United States,Sectors not specified,117810899.0
+229,United Arab Emirates,Japan,Sectors not specified,19024.0

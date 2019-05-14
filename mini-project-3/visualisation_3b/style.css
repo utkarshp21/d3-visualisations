@@ -1,0 +1,37 @@
+ body {
+    font-family: Helvetica, Arial, sans-serif
+}
+
+h1 {
+    background-color: #2a5599;
+    color: #ffff;
+    padding: 5px;
+}
+
+svg{
+    border: 1px solid grey;
+}
+
+.map-container{
+   display:inline-block;
+}
+
+
+.tick line {
+        shape-rendering: crispEdges;
+        stroke: #D3D3D3;
+    }
+
+  line.minor {
+      stroke: #D3D3D3;
+      stroke-dasharray: 1, 1;
+  }
+
+  path.domain {
+      fill: none;
+      stroke: #D3D3D3;
+  }
+
+  g text {
+      font-size: 12;
+  }
