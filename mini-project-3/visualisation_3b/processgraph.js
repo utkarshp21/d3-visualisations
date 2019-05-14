@@ -42,12 +42,12 @@ function drawMartixChart(nodes, edges, i, text){
         })
     })
 
-    let blockHeight = 10;
+    let blockHeight = 15;
     let blockWidth = 15;
 
     let margin = { top: 10, right: 1, bottom: 10, left: 5 },
         width = 830 - margin.left - margin.right,
-        height = 650 - margin.top - margin.bottom;
+        height = 930 - margin.top - margin.bottom;
 
     let container = d3.select("#svg" + i)
         .attr("width", width + margin.left + margin.right)
@@ -68,13 +68,30 @@ function drawMartixChart(nodes, edges, i, text){
         .attr("height", blockHeight)
         .attr("x", function (d) { return d.x * blockWidth })
         .attr("y", function (d) { return d.y * blockHeight })
-        .style("stroke", "black")
+        .style("stroke", "grey")
         .style("stroke-width", "1px")
         .style("fill", (d) => store.colors[i])
-        .style("fill-opacity", function (d) { return d.amount * 0.9; })
+        .style("fill-opacity", function (d) { return d.amount * 0.01; })
         .on("mouseover", gridOver)
         .append("svg:title")
         .text(function (d, i) { return d.amount + " co-occurences"; });
+    
+    container.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left + 20)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("font-size", "25px")
+        .text("Donors");
+    
+    container.append("text")
+        .attr("transform",
+            "translate(" + ((width) / 2) + " ," +
+            (50) + ")")
+        .style("text-anchor", "middle")
+        .style("font-size", "25px")
+        .text("Recipients");
 
     var scaleSize = nodes.length * blockWidth;
     var yscaleSize = nodes.length * blockHeight;
@@ -97,8 +114,8 @@ function drawMartixChart(nodes, edges, i, text){
 
     d3.select("#svg" + i).append("text")
         .text(text)
-        .style("font-size", "20px")
-        .attr("transform", `translate(${width/3},40)`);
+        .style("font-size", "25px")
+        .attr("transform", `translate(${10},30)`);
 
     d3.select("#adjacencyG"+i).append("g")
         .call(xAxis)
@@ -112,7 +129,8 @@ function drawMartixChart(nodes, edges, i, text){
 
     function gridOver(d, i) {
         d3.selectAll("rect")
-            .style("stroke-width", function (p) { return p.x == d.x || p.y == d.y ? "3px" : "1px" })
+            .style("stroke-width", function (p) { return p.x == d.x || p.y == d.y ? "2px" : "1px" })
+            .style("stroke", function (p) { return p.x == d.x || p.y == d.y ? "black" : "grey" })
     }
 }
 
