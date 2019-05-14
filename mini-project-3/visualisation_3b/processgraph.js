@@ -2,42 +2,25 @@
 let store = {}
 
 function loadData() {
-    return Promise.all([
-        d3.csv("../data/node.csv"),
-        d3.csv("../data/Sectors not specified.csv"),
-        d3.csv("../data/Higher education.csv"),
-        d3.csv("../data/Strengthening civil society.csv"),
-        d3.csv("../data/Social welfare services.csv"),
-        d3.csv("../data/Multisector aid.csv"),
-    ]).then(datasets => {
-        store.nodes = datasets[0];
-        store.sectorsNotSpecified = datasets[1];
-        store.higherEducation = datasets[2];
-        store.strengtheningCivilSociety = datasets[3];
-        store.socialWelfareServices = datasets[4];
-        store.multisectorAid = datasets[5];
+    store.files = ["Sectors not specified", "Higher education", "Strengthening civil society", "Social welfare services","Multisector aid"];
+    store.colors = ["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854"];
+    let LoadPromise = store["files"].map((file) => d3.csv(`../data/${file}.csv`))
+    LoadPromise.push(d3.csv(`../data/node.csv`));
+    return Promise.all(
+        LoadPromise
+    ).then(datasets => {
+        store["files"].forEach((data,index) => {
+            store[store["files"][index]] = datasets[index];
+        });
+        store.nodes = datasets[datasets.length-1];
         return store;
     })
 }
 
-function getChartConfig() {
-    let margin = { top: 10, right: 200, bottom: 200, left: 200 },
-        width = 1900 - margin.left - margin.right,
-        height = 1200 - margin.top - margin.bottom;
-
-    let container = d3.select("#Matrix")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    return { width, height, container, margin }
-}
-
-function drawMartixChart(config, nodes, edges, i,color, text){
+function drawMartixChart(nodes, edges, i, text){
 
     var edgeHash = {};
- 
+    
     edges.forEach(edge => {
         var id = edge.source + "-" + edge.target
        
@@ -59,8 +42,21 @@ function drawMartixChart(config, nodes, edges, i,color, text){
         })
     })
 
-    let blockSize = 10
-    d3.select("#svg"+i)
+    let blockHeight = 10;
+    let blockWidth = 15;
+
+    let margin = { top: 10, right: 1, bottom: 10, left: 5 },
+        width = 830 - margin.left - margin.right,
+        height = 650 - margin.top - margin.bottom;
+
+    let container = d3.select("#svg" + i)
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+    container
         .append("g")
         .attr("transform", "translate(120,150)")
         .attr("id", "adjacencyG"+i)
@@ -68,20 +64,20 @@ function drawMartixChart(config, nodes, edges, i,color, text){
         .data(matrix)
         .enter()
         .append("rect")
-        .attr("width", 15)
-        .attr("height", blockSize)
-        .attr("x", function (d) { return d.x * 15 })
-        .attr("y", function (d) { return d.y * blockSize })
+        .attr("width", blockWidth)
+        .attr("height", blockHeight)
+        .attr("x", function (d) { return d.x * blockWidth })
+        .attr("y", function (d) { return d.y * blockHeight })
         .style("stroke", "black")
         .style("stroke-width", "1px")
-        .style("fill", (d) => color)
+        .style("fill", (d) => store.colors[i])
         .style("fill-opacity", function (d) { return d.amount * 0.9; })
         .on("mouseover", gridOver)
         .append("svg:title")
         .text(function (d, i) { return d.amount + " co-occurences"; });
 
-    var scaleSize = nodes.length * 15;
-    var yscaleSize = nodes.length * 10;
+    var scaleSize = nodes.length * blockWidth;
+    var yscaleSize = nodes.length * blockHeight;
 
     var allNodes = nodes.map(function (el) { return el.node })
 
@@ -102,7 +98,7 @@ function drawMartixChart(config, nodes, edges, i,color, text){
     d3.select("#svg" + i).append("text")
         .text(text)
         .style("font-size", "20px")
-        .attr("transform", "translate(300,40)");
+        .attr("transform", `translate(${width/3},40)`);
 
     d3.select("#adjacencyG"+i).append("g")
         .call(xAxis)
@@ -122,13 +118,9 @@ function drawMartixChart(config, nodes, edges, i,color, text){
 
 
 function drawChart() {
-    let config = getChartConfig();
-    drawMartixChart(config, store.nodes, store.sectorsNotSpecified, 1, "#66c2a5", "Sectors Not Specified" );
-    drawMartixChart(config, store.nodes, store.higherEducation, 2, "#fc8d62","Higher education");
-    drawMartixChart(config, store.nodes, store.strengtheningCivilSociety, 3, "#8da0cb","Strengthening civil society");
-    drawMartixChart(config, store.nodes, store.socialWelfareServices, 4, "#e78ac3","Social welfare services");
-    drawMartixChart(config, store.nodes, store.multisectorAid, 5, "#a6d854","Multisector aid");
-
+    store["files"].forEach((file,index)=>{
+        drawMartixChart(store.nodes, store[file], index , file );
+    })
 }
 
 
