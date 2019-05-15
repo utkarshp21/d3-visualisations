@@ -1,0 +1,217 @@
+target,source,purpose
+Australia,United States,"[21030, 21050, 32120]"
+Austria,United States,[21050]
+Belgium,United States,[21050]
+Brazil,Austria,[32120]
+Brazil,Belgium,"[32120, 60040]"
+Brazil,Canada,"[21030, 23020, 32120]"
+Brazil,France,"[21030, 23020, 60040]"
+Brazil,Germany,"[21030, 23020, 32120, 60040]"
+Brazil,Ireland,[32120]
+Brazil,Italy,"[23020, 32120]"
+Brazil,Japan,"[21030, 21050, 32120, 60040]"
+Brazil,Korea,[32120]
+Brazil,Norway,[32120]
+Brazil,Portugal,"[21030, 32120]"
+Brazil,Spain,"[21030, 21050, 32120]"
+Brazil,Switzerland,[32120]
+Brazil,United Kingdom,"[23020, 32120, 60040]"
+Brazil,United States,"[21030, 21050, 23020, 32120]"
+Canada,United States,"[21050, 32120]"
+Chile,Belgium,[32120]
+Chile,Canada,[32120]
+Chile,France,"[21030, 21050, 32120, 60040]"
+Chile,Germany,"[32120, 60040]"
+Chile,Italy,[32120]
+Chile,Japan,"[21030, 32120]"
+Chile,Korea,[21050]
+Chile,Norway,[32120]
+Chile,Spain,"[21050, 32120]"
+Chile,Sweden,[32120]
+Chile,Switzerland,[32120]
+Chile,United Kingdom,[60040]
+Chile,United States,"[21030, 21050, 23020, 32120]"
+Colombia,Austria,[21030]
+Colombia,Belgium,"[23020, 32120]"
+Colombia,Canada,[32120]
+Colombia,Denmark,[32120]
+Colombia,France,"[21030, 21050, 32120]"
+Colombia,Germany,"[21030, 21050, 23020, 32120]"
+Colombia,Italy,"[21050, 23020, 32120]"
+Colombia,Japan,"[21030, 21050, 32120]"
+Colombia,Korea,"[21030, 32120]"
+Colombia,Netherlands,[32120]
+Colombia,Spain,"[21050, 32120]"
+Colombia,Switzerland,[32120]
+Colombia,United Kingdom,"[23020, 32120]"
+Colombia,United States,"[21030, 21050, 23020, 32120]"
+Cyprus,Austria,"[23020, 32120]"
+Cyprus,France,"[21050, 32120]"
+Czech Republic,Austria,[23020]
+Czech Republic,Belgium,[23020]
+Czech Republic,Canada,"[21050, 23020, 32120]"
+Czech Republic,Finland,[32120]
+Czech Republic,France,"[23020, 32120]"
+Czech Republic,Germany,[23020]
+Czech Republic,Italy,[21030]
+Czech Republic,Japan,"[21030, 32120]"
+Czech Republic,Spain,[32120]
+Czech Republic,Sweden,[32120]
+Czech Republic,United Kingdom,"[23020, 32120]"
+Czech Republic,United States,"[21030, 21050, 23020, 32120]"
+Denmark,United States,[21050]
+Estonia,Canada,[32120]
+Estonia,Czech Republic,[32120]
+Estonia,Finland,"[23020, 32120]"
+Estonia,France,"[21030, 21050]"
+Estonia,Germany,[32120]
+Estonia,Norway,[32120]
+Estonia,Spain,[32120]
+Estonia,Sweden,"[21030, 21050, 23020, 32120]"
+Estonia,United Kingdom,[23020]
+Estonia,United States,[32120]
+Finland,United States,[21050]
+France,United States,[21050]
+Greece,United States,"[21050, 23020, 32120]"
+Hungary,Austria,[23020]
+Hungary,Belgium,[23020]
+Hungary,Canada,"[23020, 32120]"
+Hungary,Finland,[32120]
+Hungary,France,"[21030, 32120]"
+Hungary,Germany,[23020]
+Hungary,Italy,[32120]
+Hungary,United States,"[21030, 21050, 23020, 32120]"
+Iceland,United States,[21050]
+India,Australia,"[21030, 23020, 32120]"
+India,Austria,"[23020, 32120, 60040]"
+India,Belgium,"[23020, 32120, 60040]"
+India,Canada,"[21030, 21050, 23020, 32120, 60040]"
+India,Czech Republic,[32120]
+India,Denmark,[32120]
+India,Finland,[32120]
+India,France,"[21030, 21050, 23020, 32120, 60040]"
+India,Germany,"[21030, 23020, 32120, 60040]"
+India,Italy,"[23020, 32120, 60040]"
+India,Japan,"[21030, 23020, 32120, 60040]"
+India,Kuwait,"[23020, 32120]"
+India,Netherlands,"[21030, 21050, 23020, 32120, 60040]"
+India,Norway,"[21050, 23020, 32120]"
+India,Saudi Arabia,[21030]
+India,Spain,"[21030, 21050, 32120]"
+India,Sweden,"[21030, 23020, 32120]"
+India,Switzerland,[32120]
+India,United Arab Emirates,[23020]
+India,United Kingdom,"[21030, 21050, 23020, 32120, 60040]"
+India,United States,"[21030, 21050, 23020, 32120, 60040]"
+Ireland,United States,"[21050, 23020, 32120]"
+Italy,United States,[21050]
+Japan,United States,[21050]
+Korea,France,"[21030, 32120]"
+Korea,Germany,"[21030, 32120]"
+Korea,Japan,"[21030, 32120]"
+Korea,United States,"[21030, 21050, 23020, 32120]"
+Kuwait,United States,"[23020, 32120]"
+Latvia,Czech Republic,[32120]
+Latvia,France,[32120]
+Latvia,Norway,[23020]
+Latvia,Sweden,"[21030, 21050, 23020, 32120]"
+Latvia,United States,[32120]
+Lithuania,Belgium,[23020]
+Lithuania,Czech Republic,[32120]
+Lithuania,France,"[23020, 32120]"
+Lithuania,Germany,[23020]
+Lithuania,Liechtenstein,[32120]
+Lithuania,Norway,[23020]
+Lithuania,Spain,[32120]
+Lithuania,Sweden,"[21030, 21050, 23020, 32120]"
+Lithuania,United Kingdom,[23020]
+Lithuania,United States,"[21030, 21050, 32120]"
+Luxembourg,United States,[21050]
+New Zealand,United States,"[21050, 32120]"
+Norway,United States,[21050]
+Poland,Belgium,[60040]
+Poland,Canada,"[21050, 23020, 32120]"
+Poland,Finland,[32120]
+Poland,France,"[21030, 21050, 32120]"
+Poland,Germany,[60040]
+Poland,Italy,"[21030, 32120]"
+Poland,Japan,[21030]
+Poland,Sweden,"[21030, 21050, 32120]"
+Poland,United Kingdom,"[21030, 21050, 32120]"
+Poland,United States,"[21030, 21050, 23020, 32120]"
+Portugal,United States,"[21050, 32120]"
+Qatar,France,[23020]
+Qatar,United States,"[23020, 32120]"
+Romania,Austria,[32120]
+Romania,Belgium,[23020]
+Romania,Canada,"[21050, 23020, 32120]"
+Romania,France,"[21050, 32120]"
+Romania,Italy,[32120]
+Romania,Japan,"[21030, 32120]"
+Romania,Spain,[32120]
+Romania,Switzerland,[21030]
+Romania,United Kingdom,[32120]
+Romania,United States,"[21030, 21050, 23020, 32120]"
+Saudi Arabia,Austria,[32120]
+Saudi Arabia,Japan,[32120]
+Saudi Arabia,United States,"[21030, 21050, 23020, 32120]"
+Slovak Republic,Austria,[23020]
+Slovak Republic,Belgium,[23020]
+Slovak Republic,Canada,"[21030, 23020, 32120]"
+Slovak Republic,France,"[23020, 32120]"
+Slovak Republic,Germany,[23020]
+Slovak Republic,Italy,[32120]
+Slovak Republic,Netherlands,[21050]
+Slovak Republic,Spain,"[23020, 32120]"
+Slovak Republic,Sweden,[32120]
+Slovak Republic,United Kingdom,[32120]
+Slovenia,Belgium,[23020]
+Slovenia,Canada,[32120]
+Slovenia,France,[21030]
+Slovenia,Germany,"[32120, 60040]"
+Slovenia,Italy,[21030]
+South Africa,Australia,[32120]
+South Africa,Belgium,[32120]
+South Africa,Canada,[32120]
+South Africa,Denmark,[32120]
+South Africa,Finland,[32120]
+South Africa,France,"[21030, 21050]"
+South Africa,Germany,[32120]
+South Africa,Ireland,[32120]
+South Africa,Japan,"[21030, 32120]"
+South Africa,Netherlands,[32120]
+South Africa,Norway,"[21030, 21050, 23020, 32120]"
+South Africa,Sweden,"[23020, 32120]"
+South Africa,Switzerland,[32120]
+South Africa,United Kingdom,"[23020, 32120]"
+South Africa,United States,"[21030, 21050, 23020, 32120]"
+Spain,United States,"[21050, 23020, 32120]"
+Sweden,United States,[32120]
+Taiwan,France,[32120]
+Taiwan,Japan,[32120]
+Taiwan,Saudi Arabia,[21030]
+Taiwan,United States,"[21050, 32120]"
+Thailand,Australia,"[21030, 21050, 23020, 32120]"
+Thailand,Austria,[32120]
+Thailand,Belgium,"[21030, 21050, 32120]"
+Thailand,Canada,"[21050, 23020, 32120]"
+Thailand,Denmark,"[21030, 23020, 32120]"
+Thailand,Finland,[32120]
+Thailand,France,"[21030, 21050, 23020, 32120]"
+Thailand,Germany,"[21030, 23020, 32120, 60040]"
+Thailand,Italy,[21030]
+Thailand,Japan,"[21030, 21050, 23020, 32120]"
+Thailand,Korea,"[21030, 21050, 23020, 32120]"
+Thailand,Kuwait,[23020]
+Thailand,Netherlands,[32120]
+Thailand,Norway,"[21050, 32120]"
+Thailand,Saudi Arabia,[23020]
+Thailand,Spain,[32120]
+Thailand,Sweden,[32120]
+Thailand,Switzerland,[23020]
+Thailand,United Kingdom,"[21030, 32120]"
+Thailand,United States,"[21030, 21050, 23020, 32120]"
+United Arab Emirates,Austria,[32120]
+United Arab Emirates,Japan,[32120]
+United Arab Emirates,United States,[21050]
+United Kingdom,United States,[21050]
